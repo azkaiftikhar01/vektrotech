@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..146,100..700;1,9..146,100..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #6B7280;
+  background-color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Display', serif;
+  color: #1B2A6B;
+}
+
+/* Utility classes */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-blue to-purple text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-all duration-300 hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply border-2 border-blue bg-gradient-to-r from-blue/10 to-purple/10 text-blue px-8 py-3 rounded-full font-medium hover:from-blue hover:to-purple hover:text-white transition-all duration-300;
+}
+
+.btn-outline {
+  @apply border-2 border-blue text-blue px-8 py-3 rounded-full font-medium hover:bg-gradient-to-r hover:from-blue hover:to-purple hover:text-white transition-all duration-300;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6D3ACF, #0084FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, rgba(109, 58, 207, 0.08) 0%, rgba(0, 132, 255, 0.08) 50%, rgba(27, 42, 107, 0.05) 100%), #f8f9ff;
+  position: relative;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+  
+  h2 {
+    font-size: 28px;
+  }
+  
+  h3 {
+    font-size: 24px;
+  }
+}
