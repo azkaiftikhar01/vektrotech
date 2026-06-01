@@ -236,29 +236,123 @@ export default function Home() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
           >
-            {[1, 2, 3].map((num) => (
+            {/* Project 1: Phool */}
+            <Link href="/portfolio/phool">
               <motion.div
-                key={num}
                 variants={staggerItem}
-                className="group relative bg-gradient-to-br from-light-bg to-white rounded-2xl overflow-hidden h-80 border border-gray-200 hover:border-blue/50 transition-all"
-                whileHover={{ scale: 1.02 }}
+                className="group relative bg-gradient-to-br from-pink-300 to-rose-300 rounded-3xl overflow-hidden h-80 shadow-lg cursor-pointer"
+                whileHover={{ y: -8 }}
               >
-                <div className="w-full h-full flex items-center justify-center text-4xl">
-                  {num === 1 ? '🌐' : num === 2 ? '📱' : '🤖'}
+                <div className="bg-white rounded-t-2xl px-4 py-3 flex items-center gap-2 border-b border-gray-200">
+                  <div className="flex gap-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  </div>
+                  <div className="flex-1 mx-3">
+                    <div className="bg-gray-100 rounded px-2 py-1 text-xs text-gray-600 text-center">phool.com</div>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-end p-6">
-                  <h4 className="font-serif text-white text-xl font-bold mb-2 text-center">
-                    {'{PROJECT_' + num + '_NAME}'}
-                  </h4>
-                  <p className="text-blue text-sm font-medium mb-4 capitalize">{'{PROJECT_CATEGORY_' + num + '}'}</p>
-                  <a href="#" className="text-white font-medium hover:text-blue transition-colors">
-                    View Project →
-                  </a>
+                <div className="h-60 bg-gradient-to-br from-white via-blue/5 to-purple/5 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  <Image
+                    src="/portfolio/phool/Screenshot 2026-05-31 174131.png"
+                    alt="Phool Flower Shop"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
               </motion.div>
-            ))}
+            </Link>
+
+            {/* Project 2: Premier Health */}
+            <Link href="/portfolio/premier-health">
+              <motion.div
+                variants={staggerItem}
+                className="group relative bg-gradient-to-br from-red-300 to-pink-300 rounded-3xl overflow-hidden h-80 shadow-lg cursor-pointer"
+                whileHover={{ y: -8 }}
+              >
+                <div className="bg-white rounded-t-2xl px-4 py-3 flex items-center gap-2 border-b border-gray-200">
+                  <div className="flex gap-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  </div>
+                  <div className="flex-1 mx-3">
+                    <div className="bg-gray-100 rounded px-2 py-1 text-xs text-gray-600 text-center">premierhealth.com</div>
+                  </div>
+                </div>
+                <div className="h-60 bg-gradient-to-br from-white via-blue/5 to-purple/5 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  <Image
+                    src="/portfolio/premierhealth/Screenshot 2026-05-31 174224.png"
+                    alt="Premier Health Medical Management"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              </motion.div>
+            </Link>
+
+            {/* Project 3: Airova */}
+            <Link href="/portfolio/airova">
+              <motion.div
+                variants={staggerItem}
+                className="group relative bg-gradient-to-br from-purple-300 to-indigo-300 rounded-3xl overflow-hidden h-80 shadow-lg cursor-pointer"
+                whileHover={{ y: -8 }}
+              >
+                <div className="bg-white rounded-t-2xl px-4 py-3 flex items-center gap-2 border-b border-gray-200">
+                  <div className="flex gap-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  </div>
+                  <div className="flex-1 mx-3">
+                    <div className="bg-gray-100 rounded px-2 py-1 text-xs text-gray-600 text-center">airova.com</div>
+                  </div>
+                </div>
+                <div className="h-60 bg-gradient-to-br from-white via-blue/5 to-purple/5 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  <Image
+                    src="/portfolio/airova/Screenshot 2026-05-31 180126.png"
+                    alt="Airova AI Assistants"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              </motion.div>
+            </Link>
+
+            {/* Project 4: NFSYT */}
+            <Link href="/portfolio/nfsyt">
+              <motion.div
+                variants={staggerItem}
+                className="group relative bg-gradient-to-br from-blue-300 to-purple-300 rounded-3xl overflow-hidden h-80 shadow-lg cursor-pointer"
+                whileHover={{ y: -8 }}
+              >
+                <div className="bg-white rounded-t-2xl px-4 py-3 flex items-center gap-2 border-b border-gray-200">
+                  <div className="flex gap-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  </div>
+                  <div className="flex-1 mx-3">
+                    <div className="bg-gray-100 rounded px-2 py-1 text-xs text-gray-600 text-center">nfsyt.com</div>
+                  </div>
+                </div>
+                <div className="h-60 bg-gradient-to-br from-white via-blue/5 to-purple/5 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  <Image
+                    src="/portfolio/nfsyt/Screenshot 2026-05-31 174350.png"
+                    alt="NFSYT Mental Wellness"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              </motion.div>
+            </Link>
           </motion.div>
 
           <motion.div

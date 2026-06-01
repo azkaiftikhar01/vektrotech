@@ -57,19 +57,16 @@ export default function About() {
                 title: 'Connect',
                 description:
                   'We start by understanding your business, your users, and your goals. Deep connections lead to better solutions.',
-                icon: '🔗',
               },
               {
                 title: 'Build',
                 description:
                   'With clear vision, we engineer solutions that are scalable, maintainable, and built to last. Quality is non-negotiable.',
-                icon: '⚙️',
               },
               {
                 title: 'Elevate',
                 description:
-                  'We don't just deliver projects—we elevate your business forward. Your success is our success.',
-                icon: '📈',
+                  'We don\'t just deliver projects - we elevate your business forward. Your success is our success.',
               },
             ].map((pillar, idx) => (
               <motion.div
@@ -78,7 +75,6 @@ export default function About() {
                 className="bg-light-bg p-8 rounded-lg hover:shadow-lg transition-all duration-300"
                 whileHover={{ y: -8 }}
               >
-                <div className="text-5xl mb-4">{pillar.icon}</div>
                 <h3 className="font-serif text-2xl font-bold mb-3">{pillar.title}</h3>
                 <p className="text-body-text leading-relaxed">{pillar.description}</p>
               </motion.div>
@@ -101,12 +97,12 @@ export default function About() {
             <div className="space-y-6 text-lg text-body-text leading-relaxed">
               <p>
                 Vektro is a full-service software agency built for businesses that refuse to stay
-                average. We don't just write code — we solve problems, remove friction, and build
+                average. We don&apos;t just write code - we solve problems, remove friction, and build
                 software that actually moves your business forward.
               </p>
               <p>
                 Founded on the belief that great software is a combination of strategic thinking,
-                technical excellence, and obsessive attention to detail, we've built a team of
+                technical excellence, and obsessive attention to detail, we&apos;ve built a team of
                 specialists in web development, mobile apps, AI & automation, and quality assurance.
               </p>
               <p>
@@ -120,56 +116,6 @@ export default function About() {
                 to life.
               </p>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* TEAM SECTION */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-serif text-5xl font-bold mb-4">Meet Our Team</h2>
-            <p className="text-body-text text-lg max-w-2xl mx-auto">
-              Talented builders from around the world, united by a passion for excellent software
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {[1, 2, 3, 4].map((num) => (
-              <motion.div
-                key={num}
-                variants={staggerItem}
-                className="bg-light-bg rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
-                whileHover={{ y: -8 }}
-              >
-                <div className="bg-gradient-to-br from-purple to-blue h-64 flex items-center justify-center text-white text-2xl">
-                  {'{TEAM_MEMBER_' + num + '_PHOTO}'}
-                </div>
-                <div className="p-6">
-                  <h4 className="font-serif text-xl font-bold mb-1">
-                    {'{TEAM_MEMBER_' + num + '_NAME}'}
-                  </h4>
-                  <p className="text-blue font-medium text-sm mb-3">
-                    {'{TEAM_MEMBER_' + num + '_ROLE}'}
-                  </p>
-                  <p className="text-body-text text-sm">
-                    {'{TEAM_MEMBER_' + num + '_BIO}'}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </section>
@@ -193,7 +139,7 @@ export default function About() {
               Ready to build something great?
             </h2>
             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-              Let's talk about your project and how we can help move your business forward.
+              Let&apos;s talk about your project and how we can help move your business forward.
             </p>
             <Link href="/contact">
               <motion.button
