@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://vektro.tech',
   },
+  verification: {
+    google: 'K_L_d8hCSuoj5OVYAPpVxYfr8c9p2MTnMTVZoR9POKY',
+  },
   openGraph: {
     title: 'Vektro - Software Agency',
     description:
