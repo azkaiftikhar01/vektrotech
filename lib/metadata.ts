@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+const SITE_URL = 'https://vektro.tech'
+
 export const aboutMetadata: Metadata = {
   title: 'About Vektro - Full-Service Software Agency',
   description:
@@ -37,5 +39,49 @@ export const contactMetadata: Metadata = {
   openGraph: {
     title: 'Contact Us - Vektro',
     description: 'Reach out to start your next project.',
+  },
+}
+
+export const phoolMetadata: Metadata = {
+  title: 'Phool - Flower Delivery Platform | Vektro Portfolio',
+  description:
+    'Custom e-commerce platform for Phool with a flower delivery service, bouquet builder, bulk orders, and event coordination. Built with Next.js, React, MongoDB and Stripe.',
+  openGraph: {
+    title: 'Phool Case Study - Vektro',
+    description: 'E-commerce flower delivery platform with custom bouquet builder and event coordination.',
+    url: `${SITE_URL}/portfolio/phool`,
+  },
+}
+
+export const premierHealthMetadata: Metadata = {
+  title: 'Premier Health - Medical Practice Platform | Vektro Portfolio',
+  description:
+    'Complete healthcare management platform for Premier Health with appointment scheduling, patient portal, insurance integration, and staff dashboard. Built with Next.js and PostgreSQL.',
+  openGraph: {
+    title: 'Premier Health Case Study - Vektro',
+    description: 'Full-featured medical practice management system with patient portal and staff tools.',
+    url: `${SITE_URL}/portfolio/premier-health`,
+  },
+}
+
+export const airovaMetadata: Metadata = {
+  title: 'Airova - AI Assistant Platform | Vektro Portfolio',
+  description:
+    'AI-powered platform for building personalised conversational assistants for restaurants, clinics, and retail. Multi-tenant with analytics. Built with Next.js, TypeScript and OpenAI.',
+  openGraph: {
+    title: 'Airova Case Study - Vektro',
+    description: 'SaaS platform for deploying branded AI assistants across industries.',
+    url: `${SITE_URL}/portfolio/airova`,
+  },
+}
+
+export const nfsytMetadata: Metadata = {
+  title: 'NFSYT - Mental Wellness Platform | Vektro Portfolio',
+  description:
+    'Comprehensive mental health platform with CBT journaling, mood tracking, therapist matching, support groups, and appointment management. Built with Next.js and real-time chat.',
+  openGraph: {
+    title: 'NFSYT Case Study - Vektro',
+    description: 'Mental wellness app with therapy support, journaling, and professional therapist connections.',
+    url: `${SITE_URL}/portfolio/nfsyt`,
   },
 }

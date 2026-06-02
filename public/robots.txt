@@ -3,7 +3,7 @@ Allow: /
 Disallow: /admin
 Disallow: /private
 
-Sitemap: https://vektro.com/sitemap.xml
+Sitemap: https://vektro.tech/sitemap.xml
 
 # Google-specific
 User-agent: Googlebot

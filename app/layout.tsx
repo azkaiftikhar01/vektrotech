@@ -16,15 +16,19 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/favicon.png',
   },
+  metadataBase: new URL('https://vektro.tech'),
+  alternates: {
+    canonical: 'https://vektro.tech',
+  },
   openGraph: {
     title: 'Vektro - Software Agency',
     description:
       'Full-service software agency specializing in web design, mobile apps, AI assistants, and QA automation.',
-    url: 'https://vektro.com',
+    url: 'https://vektro.tech',
     type: 'website',
     images: [
       {
-        url: 'https://vektro.com/og-image.jpg',
+        url: 'https://vektro.tech/og-image.jpg',
         width: 1200,
         height: 630,
       },
@@ -46,6 +50,32 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ProfessionalService',
+              name: 'Vektro',
+              url: 'https://vektro.tech',
+              logo: 'https://vektro.tech/logo.png',
+              description:
+                'Full-service software agency specializing in web design, mobile apps, AI assistants, and QA automation.',
+              email: 'hello@vektro.tech',
+              sameAs: [
+                'https://linkedin.com/company/vektro',
+                'https://instagram.com/vektro.tech',
+              ],
+              serviceType: [
+                'Web Development',
+                'Mobile App Development',
+                'AI Assistants',
+                'QA Automation',
+                'Custom Software',
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen">
         <div className="w-full overflow-x-hidden">
