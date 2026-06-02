@@ -73,7 +73,7 @@ export default function ChatForm() {
     if (steps[currentStep].type !== 'message' && value.trim()) {
       setFormData({
         ...formData,
-        [steps[currentStep].key]: value,
+        [steps[currentStep].key!]: value,
       })
       setCurrentStep(currentStep + 1)
     } else if (steps[currentStep].type === 'message') {
