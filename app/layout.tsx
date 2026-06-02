@@ -46,11 +46,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          type="image/svg+xml"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%231B2A6B' width='100' height='100'/><text x='50%' y='50%' font-size='60' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>V</text></svg>"
-        />
       </head>
       <body className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen">
         <div className="w-full overflow-x-hidden">
