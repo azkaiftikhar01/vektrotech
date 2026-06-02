@@ -60,16 +60,15 @@ export default function WhatWeDo() {
 
   return (
     <section
-      className="relative w-full overflow-hidden flex items-center justify-center"
+      className="relative w-full overflow-hidden flex items-center justify-center pb-52 md:pb-20"
       style={{
         background: "linear-gradient(135deg, #F3F7FF 0%, #F9FAFB 50%, #EEF4FF 100%)",
         minHeight: "100vh",
         paddingTop: "80px",
-        paddingBottom: "80px",
       }}
     >
       {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Central radial gradient */}
         <div
           className="absolute"

@@ -18,7 +18,7 @@ export default function Home() {
           <div className="absolute bottom-10 left-10 w-80 h-80 bg-purple/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
 
-        <div className="container-custom relative z-10 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="container-custom relative z-10 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -41,7 +41,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
             >
               We Build
               <br />
@@ -130,9 +130,9 @@ export default function Home() {
       <WhatWeDo />
 
       {/* ABOUT SECTION - REDESIGNED */}
-      <section className="bg-gradient-to-r from-navy/5 to-blue/5 py-24">
+      <section className="bg-gradient-to-r from-navy/5 to-blue/5 py-16 md:py-24 overflow-hidden">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Text */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -143,7 +143,7 @@ export default function Home() {
             >
               <div>
                 <span className="text-blue font-semibold text-sm tracking-widest">ABOUT VEKTRO</span>
-                <h2 className="font-serif text-5xl font-bold text-navy mt-2 leading-tight">
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-navy mt-2 leading-tight">
                   Built by builders. Obsessed with results.
                 </h2>
               </div>
@@ -179,7 +179,7 @@ export default function Home() {
             >
               <iframe
                 src="/vektro_screen_demo_clean.html"
-                className="w-full h-96 bg-white border-0"
+                className="w-full h-64 md:h-96 bg-white border-0"
                 title="Vektro Services Animation"
                 style={{ aspectRatio: '580/360' }}
               />
@@ -189,16 +189,16 @@ export default function Home() {
       </section>
 
       {/* CONTACT SECTION */}
-      <section className="bg-gradient-to-br from-blue/5 via-purple/3 to-blue/5 py-24">
+      <section className="bg-gradient-to-br from-blue/5 via-purple/3 to-blue/5 py-16 md:py-24">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="font-serif text-5xl font-bold mb-4 text-navy">Contact Us</h2>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 text-navy">Contact Us</h2>
             <p className="text-gray-600 text-xl max-w-2xl mx-auto">
               Enter your information below and we'll get back to you with a detailed quote within 24 hours
             </p>
@@ -216,16 +216,16 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO TEASER - IMPROVED */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="font-serif text-5xl font-bold text-navy mb-4">Our Recent Work</h2>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy mb-4">Our Recent Work</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               A selection of projects we're proud of
             </p>
@@ -376,9 +376,9 @@ export default function Home() {
       </section>
 
       {/* CTA BANNER - COMPLETELY REDESIGNED */}
-      <section className="gradient-bg text-white py-24 relative overflow-hidden">
+      <section className="gradient-bg text-white py-16 md:py-24 relative overflow-hidden">
         {/* Animated background */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-20 overflow-hidden">
           <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl top-10 -right-48 animate-pulse"></div>
           <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl bottom-10 -left-48 animate-pulse"></div>
         </div>
@@ -389,12 +389,12 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto space-y-8"
+            className="text-center max-w-3xl mx-auto space-y-6 md:space-y-8"
           >
-            <h2 className="font-serif text-6xl font-bold text-navy">
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-navy">
               Ready to build something great?
             </h2>
-            <p className="text-2xl text-navy/80">
+            <p className="text-lg md:text-2xl text-navy/80">
               Let's talk about your project and how we can help move your business forward.
             </p>
             <Link href="/contact">

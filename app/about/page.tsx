@@ -22,7 +22,7 @@ export default function About() {
             <p className="text-2xl text-blue font-medium tracking-wide">
               Connect. Build. Elevate.
             </p>
-            <p className="text-gray-300 text-xl mt-6">
+            <p className="text-gray-600 text-xl mt-6">
               A full-service software agency built by builders for forward-thinking businesses.
             </p>
           </motion.div>
@@ -30,16 +30,16 @@ export default function About() {
       </section>
 
       {/* MISSION - 3 PILLARS */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="font-serif text-5xl font-bold mb-4">Our Core Values</h2>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4">Our Core Values</h2>
             <p className="text-body-text text-lg max-w-2xl mx-auto">
               Three principles that guide everything we build
             </p>
@@ -84,16 +84,16 @@ export default function About() {
       </section>
 
       {/* ABOUT BODY TEXT */}
-      <section className="bg-light-bg py-20">
+      <section className="bg-light-bg py-16 md:py-20">
         <div className="container-custom max-w-3xl">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white p-12 rounded-lg"
+            className="bg-white p-6 md:p-12 rounded-lg"
           >
-            <h2 className="font-serif text-4xl font-bold mb-8">Who We Are</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 md:mb-8">Who We Are</h2>
             <div className="space-y-6 text-lg text-body-text leading-relaxed">
               <p>
                 Vektro is a full-service software agency built for businesses that refuse to stay
@@ -121,8 +121,8 @@ export default function About() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="gradient-bg text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="gradient-bg text-white py-16 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 overflow-hidden">
           <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl top-10 -right-48 animate-pulse"></div>
           <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl bottom-10 -left-48 animate-pulse"></div>
         </div>
@@ -135,10 +135,10 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="font-serif text-5xl font-bold mb-6">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 md:mb-6">
               Ready to build something great?
             </h2>
-            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
               Let&apos;s talk about your project and how we can help move your business forward.
             </p>
             <Link href="/contact">

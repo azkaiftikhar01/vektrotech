@@ -54,20 +54,20 @@ export default function PortfolioPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue/3 to-purple/3 pt-32 pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-white via-blue/3 to-purple/3 pt-24 md:pt-32 pb-16 md:pb-20">
       <div className="container-custom">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <span className="text-blue font-semibold text-sm tracking-widest">OUR WORK</span>
-          <h1 className="font-serif text-6xl font-bold text-navy mt-4 mb-6">
+          <h1 className="font-serif text-4xl md:text-6xl font-bold text-navy mt-4 mb-4 md:mb-6">
             Projects We're Proud Of
           </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
             From flower delivery platforms to AI assistants and mental wellness apps, we build software that makes a real impact.
           </p>
         </motion.div>
@@ -78,7 +78,7 @@ export default function PortfolioPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-24"
+          className="space-y-16 md:space-y-24"
         >
           {projects.map((project, idx) => (
             <motion.div
@@ -92,7 +92,7 @@ export default function PortfolioPage() {
               <div className={idx % 2 === 1 ? 'lg:order-2' : ''}>
                 <div className="space-y-6">
                   <div>
-                    <h2 className="font-serif text-5xl font-bold text-navy mb-2">
+                    <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy mb-2">
                       {project.name}
                     </h2>
                     <p className="text-xl text-blue font-semibold">{project.tagline}</p>
@@ -104,7 +104,7 @@ export default function PortfolioPage() {
 
                   <div>
                     <h4 className="font-serif text-lg font-bold text-navy mb-3">Features</h4>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {project.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-2">
                           <span className="text-blue text-lg">✓</span>
@@ -178,12 +178,12 @@ export default function PortfolioPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-24 text-center"
+          className="mt-16 md:mt-24 text-center"
         >
-          <h2 className="font-serif text-5xl font-bold text-navy mb-6">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy mb-4 md:mb-6">
             Ready to bring your vision to life?
           </h2>
-          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
             We combine stunning design with powerful functionality to create software that users love.
           </p>
           <Link href="/contact">

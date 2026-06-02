@@ -53,10 +53,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen">
-        <LogoAnimation />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <div className="w-full overflow-x-hidden">
+          <LogoAnimation />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   )

@@ -123,7 +123,7 @@ export default function ChatForm() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-3xl border border-blue/20 shadow-lg overflow-hidden flex flex-col h-[600px]">
+      <div className="bg-white rounded-3xl border border-blue/20 shadow-lg overflow-hidden flex flex-col h-[480px] sm:h-[600px]">
         {/* Chat Container */}
         <div className="flex-1 overflow-y-auto p-8 space-y-4 bg-gradient-to-br from-white via-blue/2 to-white">
           <AnimatePresence mode="wait">

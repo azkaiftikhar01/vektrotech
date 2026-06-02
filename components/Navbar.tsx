@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Logo from '@/components/Logo'
 
 export default function Navbar() {
@@ -78,40 +78,40 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{
-          opacity: isMobileMenuOpen ? 1 : 0,
-          y: isMobileMenuOpen ? 0 : -20,
-        }}
-        transition={{ duration: 0.3 }}
-        className={`md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg ${
-          isMobileMenuOpen ? 'block' : 'hidden'
-        }`}
-      >
-        <div className="flex flex-col p-4 gap-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`py-2 px-4 rounded transition-all ${
-                activeLink === link.href
-                  ? 'bg-light-bg text-blue font-medium'
-                  : 'text-body-text hover:text-navy'
-              }`}
-              onClick={() => {
-                setActiveLink(link.href)
-                setIsMobileMenuOpen(false)
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <button className="btn-primary w-full text-sm mt-4">
-            Get Started
-          </button>
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg"
+          >
+            <div className="flex flex-col p-4 gap-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`py-2 px-4 rounded transition-all ${
+                    activeLink === link.href
+                      ? 'bg-light-bg text-blue font-medium'
+                      : 'text-body-text hover:text-navy'
+                  }`}
+                  onClick={() => {
+                    setActiveLink(link.href)
+                    setIsMobileMenuOpen(false)
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <button className="btn-primary w-full text-sm mt-4">
+                Get Started
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

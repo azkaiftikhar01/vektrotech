@@ -114,7 +114,7 @@ export default function Services() {
       </section>
 
       {/* SERVICES - ALTERNATING LAYOUT */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="container-custom space-y-24">
           {services.map((service, idx) => (
             <motion.div
@@ -322,8 +322,8 @@ export default function Services() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="gradient-bg text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="gradient-bg text-white py-16 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 overflow-hidden">
           <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl top-10 -right-48 animate-pulse"></div>
           <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl bottom-10 -left-48 animate-pulse"></div>
         </div>
@@ -336,10 +336,10 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="font-serif text-5xl font-bold mb-6">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 md:mb-6">
               Ready to build something great?
             </h2>
-            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
               Let's talk about your project and how we can help move your business forward.
             </p>
             <Link href="/contact">

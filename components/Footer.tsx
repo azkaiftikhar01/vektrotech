@@ -104,30 +104,25 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="mailto:hello@vektro.com"
+                  href="mailto:hello@vektro.tech"
                   className="text-navy/70 hover:text-blue transition-all"
                 >
-                  hello@vektro.com
+                  hello@vektro.tech
                 </a>
               </li>
-              <li>
-                <a
-                  href="tel:+1234567890"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
-                  {'{PHONE_NUMBER}'}
-                </a>
-              </li>
-              <li className="flex gap-4 pt-4">
-                <a href="#" className="text-navy/70 hover:text-blue transition-all">
-                  {'{TWITTER}'}
-                </a>
-                <a href="#" className="text-navy/70 hover:text-blue transition-all">
-                  {'{LINKEDIN}'}
-                </a>
-                <a href="#" className="text-navy/70 hover:text-blue transition-all">
-                  {'{GITHUB}'}
-                </a>
+              <li className="space-y-2 pt-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-navy/50">LinkedIn</span>
+                  <a href="https://linkedin.com/company/vektro" target="_blank" rel="noopener noreferrer" className="text-navy/70 hover:text-blue transition-all font-medium">
+                    Vektro
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-navy/50">Instagram</span>
+                  <a href="https://instagram.com/vektro.tech" target="_blank" rel="noopener noreferrer" className="text-navy/70 hover:text-blue transition-all font-medium">
+                    vektro.tech
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

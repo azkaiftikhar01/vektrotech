@@ -112,7 +112,7 @@ export default function Contact() {
             <h1 className="font-serif text-6xl md:text-7xl font-bold mb-6">
               Let's Talk
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-600">
               Tell us about your project. We'll get back to you within 24 hours.
             </p>
           </motion.div>
@@ -327,19 +327,10 @@ export default function Contact() {
                   <div>
                     <p className="text-sm text-body-text font-medium mb-1">Email</p>
                     <a
-                      href="mailto:hello@vektro.com"
+                      href="mailto:hello@vektro.tech"
                       className="text-blue font-medium hover:underline"
                     >
-                      hello@vektro.com
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-sm text-body-text font-medium mb-1">Phone</p>
-                    <a
-                      href="tel:+1234567890"
-                      className="text-blue font-medium hover:underline"
-                    >
-                      {'{PHONE_NUMBER}'}
+                      hello@vektro.tech
                     </a>
                   </div>
                   <div>
@@ -379,24 +370,22 @@ export default function Contact() {
                 <h3 className="font-serif text-xl font-bold text-navy mb-4">
                   Follow Us
                 </h3>
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                   <a
-                    href="#"
-                    className="w-10 h-10 bg-blue/10 text-blue rounded-lg flex items-center justify-center hover:bg-blue hover:text-white transition-all border border-blue/20"
+                    href="https://linkedin.com/company/vektro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-blue/10 text-blue rounded-lg text-sm font-medium hover:bg-blue hover:text-white transition-all border border-blue/20"
                   >
-                    {'{TWITTER_ICON}'}
+                    LinkedIn
                   </a>
                   <a
-                    href="#"
-                    className="w-10 h-10 bg-blue/10 text-blue rounded-lg flex items-center justify-center hover:bg-blue hover:text-white transition-all border border-blue/20"
+                    href="https://instagram.com/vektro.tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-blue/10 text-blue rounded-lg text-sm font-medium hover:bg-blue hover:text-white transition-all border border-blue/20"
                   >
-                    {'{LINKEDIN_ICON}'}
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 bg-blue/10 text-blue rounded-lg flex items-center justify-center hover:bg-blue hover:text-white transition-all border border-blue/20"
-                  >
-                    {'{GITHUB_ICON}'}
+                    Instagram
                   </a>
                 </div>
               </div>
