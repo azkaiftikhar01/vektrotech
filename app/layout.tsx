@@ -26,13 +26,6 @@ export const metadata: Metadata = {
       'Full-service software agency specializing in web design, mobile apps, AI assistants, and QA automation.',
     url: 'https://vektro.tech',
     type: 'website',
-    images: [
-      {
-        url: 'https://vektro.tech/og-image.jpg',
-        width: 1200,
-        height: 630,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
