@@ -5,71 +5,66 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { staggerContainer, staggerItem } from '@/lib/animations'
 
-export default function PortfolioPage() {
-  const projects = [
-    {
-      id: 1,
-      name: 'Phool',
-      slug: 'phool',
-      tagline: 'Flower Delivery & Custom Arrangements',
-      description: 'Beautiful e-commerce platform for flower delivery with custom bouquet builder. Customers can explore curated selections, create personalized arrangements, and place bulk orders with dedicated event coordinators.',
-      features: ['Product Catalog', 'Custom Builder', 'Bulk Orders', 'Event Coordination', 'Payment Integration'],
-      tech: ['Next.js', 'React', 'MongoDB', 'Stripe'],
-      color: 'from-pink-300 to-rose-300',
-      image: '/portfolio/phool/Screenshot 2026-05-31 174131.png',
-    },
-    {
-      id: 2,
-      name: 'Premier Health',
-      slug: 'premier-health',
-      tagline: 'Complete Medical Practice Management',
-      description: 'Comprehensive healthcare platform for internal medicine and pediatrics. Features appointment scheduling, patient management, blog for health education, insurance handling, and administrative dashboard for medical teams.',
-      features: ['Appointment System', 'Patient Portal', 'Blog Management', 'Insurance Integration', 'Staff Dashboard', 'Medical Records'],
-      tech: ['Next.js', 'React', 'PostgreSQL', 'Node.js'],
-      color: 'from-red-300 to-pink-300',
-      image: '/portfolio/premierhealth/Screenshot 2026-05-31 174224.png',
-    },
-    {
-      id: 3,
-      name: 'Airova',
-      slug: 'airova',
-      tagline: 'Personalized AI Assistants for Business',
-      description: 'AI-powered platform delivering customized conversational assistants for restaurants, clinics, retail, and services. Launch intelligent assistants in minutes with branded conversations, knowledge base configuration, and multi-channel deployment.',
-      features: ['AI Assistant Builder', 'Knowledge Base', 'Chat Interface', 'Business Configuration', 'Multi-tenant Setup', 'Analytics'],
-      tech: ['Next.js', 'TypeScript', 'OpenAI API', 'PostgreSQL'],
-      color: 'from-purple-300 to-indigo-300',
-      image: '/portfolio/airova/Screenshot 2026-05-31 180126.png',
-    },
-    {
-      id: 4,
-      name: 'NFSYT',
-      slug: 'nfsyt',
-      tagline: 'Mental Wellness & Therapy Support',
-      description: 'Comprehensive mental health platform providing therapy support, mood tracking with CBT journaling, wellness exercises, appointment management, and support groups. Safe space for mental health growth with professional therapist connections.',
-      features: ['Chat Support', 'Journal Tracking', 'Appointments', 'Exercises & Breathing', 'Progress Tracking', 'Support Groups', 'Therapist Matching'],
-      tech: ['Next.js', 'React', 'PostgreSQL', 'Real-time Chat'],
-      color: 'from-blue-300 to-purple-300',
-      image: '/portfolio/nfsyt/Screenshot 2026-05-31 174350.png',
-    },
-  ]
+const projects = [
+  {
+    id: 1,
+    name: 'Phool',
+    slug: 'phool',
+    tagline: 'Flower Delivery & Custom Arrangements',
+    achievements: ['Increased Online Orders By 40%', 'Scaled To 1,000+ Monthly Users'],
+    image: '/portfolio/phool/Screenshot 2026-05-31 174131.png',
+  },
+  {
+    id: 2,
+    name: 'Premier Health',
+    slug: 'premier-health',
+    tagline: 'Complete Medical Practice Management',
+    achievements: ['Automated 80% Of Appointment Scheduling', 'Reduced Admin Work By 60%'],
+    image: '/portfolio/premierhealth/Screenshot 2026-05-31 174224.png',
+  },
+  {
+    id: 3,
+    name: 'Airova',
+    slug: 'airova',
+    tagline: 'Personalized AI Assistants for Business',
+    achievements: ['AI Assistants Live In Under 5 Minutes', 'Deployed Across 10+ Business Categories'],
+    image: '/portfolio/airova/Screenshot 2026-05-31 180126.png',
+  },
+  {
+    id: 4,
+    name: 'NFSYT',
+    slug: 'nfsyt',
+    tagline: 'Mental Wellness & Therapy Support',
+    achievements: ['Connected 500+ Users With Therapists', 'Improved User Retention By 35%'],
+    image: '/portfolio/nfsyt/Screenshot 2026-05-31 174350.png',
+  },
+]
 
+export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue/3 to-purple/3 pt-24 md:pt-32 pb-16 md:pb-20">
+    <div className="min-h-screen bg-white pt-24 md:pt-32 pb-16 md:pb-20">
       <div className="container-custom">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-20"
+          className="mb-4"
         >
           <span className="text-blue font-semibold text-sm tracking-widest">OUR WORK</span>
-          <h1 className="font-serif text-4xl md:text-6xl font-bold text-navy mt-4 mb-4 md:mb-6">
-            Projects We're Proud Of
+        </motion.div>
+
+        <div className="border-t border-gray-200 mb-8 mt-4"></div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="mb-12 md:mb-16"
+        >
+          <h1 className="font-serif text-4xl md:text-6xl font-bold text-navy">
+            <span className="font-normal italic">Featured</span> Projects
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-            From flower delivery platforms to AI assistants and mental wellness apps, we build software that makes a real impact.
-          </p>
         </motion.div>
 
         {/* Projects Grid */}
@@ -78,97 +73,47 @@ export default function PortfolioPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-16 md:space-y-24"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
         >
-          {projects.map((project, idx) => (
-            <motion.div
-              key={project.id}
-              variants={staggerItem}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                idx % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Project Info */}
-              <div className={idx % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy mb-2">
-                      {project.name}
-                    </h2>
-                    <p className="text-xl text-blue font-semibold">{project.tagline}</p>
-                  </div>
-
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div>
-                    <h4 className="font-serif text-lg font-bold text-navy mb-3">Features</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {project.features.map((feature, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <span className="text-blue text-lg">✓</span>
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="font-serif text-lg font-bold text-navy mb-3">Tech Stack</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="bg-blue/10 text-blue px-4 py-2 rounded-full text-sm font-medium border border-blue/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+          {projects.map((project) => (
+            <Link href={`/portfolio/${project.slug}`} key={project.id}>
+              <motion.div
+                variants={staggerItem}
+                className="relative rounded-2xl overflow-hidden cursor-pointer group"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Achievement tags */}
+                <div className="absolute top-3 left-3 right-3 z-10 flex flex-col gap-2">
+                  {project.achievements.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="bg-white/90 backdrop-blur-sm text-navy text-xs font-medium px-3 py-1.5 rounded-full w-fit shadow-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </div>
 
-              {/* Project Mockup */}
-              <div className={idx % 2 === 1 ? 'lg:order-1' : ''}>
-                <Link href={`/portfolio/${project.slug}`}>
-                  <motion.div
-                    whileHover={{ y: -8 }}
-                    transition={{ duration: 0.3 }}
-                    className={`relative bg-gradient-to-br ${project.color} rounded-3xl shadow-2xl overflow-hidden cursor-pointer`}
-                  >
-                    {/* Browser Chrome */}
-                    <div className="bg-white rounded-t-2xl px-6 py-4 flex items-center gap-2 border-b border-gray-200">
-                      <div className="flex gap-2">
-                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                      </div>
-                      <div className="flex-1 mx-4">
-                        <div className="bg-gray-100 rounded px-3 py-1 text-xs text-gray-600 text-center">
-                          {project.name.toLowerCase()}.com
-                        </div>
-                      </div>
-                    </div>
+                {/* Image */}
+                <div className="aspect-[4/3] relative bg-gray-100">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                </div>
 
-                    {/* Screen Content */}
-                    <div className="aspect-video bg-white overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.name}
-                        width={1200}
-                        height={675}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-
-                    {/* Device Shadow */}
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] h-2 bg-black/10 rounded-full blur-xl"></div>
-                  </motion.div>
-                </Link>
-              </div>
-            </motion.div>
+                {/* Bottom: tagline + name */}
+                <div className="absolute bottom-4 left-4 right-4 z-10">
+                  <p className="text-white/70 text-xs mb-0.5">{project.tagline}</p>
+                  <span className="text-white font-bold text-lg drop-shadow-md">{project.name}</span>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
 
@@ -178,7 +123,7 @@ export default function PortfolioPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-16 md:mt-24 text-center"
+          className="text-center"
         >
           <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy mb-4 md:mb-6">
             Ready to bring your vision to life?

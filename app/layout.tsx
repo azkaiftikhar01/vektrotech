@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import LogoAnimation from '@/components/LogoAnimation'
+import PageTransition from '@/components/PageTransition'
+import NavigationProgress from '@/components/NavigationProgress'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -73,11 +75,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen">
-        <div className="w-full overflow-x-hidden">
+      <body className="min-h-screen">
+        <div className="w-full overflow-x-hidden bg-transparent">
+          <NavigationProgress />
           <LogoAnimation />
           <Navbar />
-          <main>{children}</main>
+          <PageTransition>{children}</PageTransition>
           <Footer />
         </div>
       </body>
