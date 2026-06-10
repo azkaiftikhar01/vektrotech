@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { staggerContainer, staggerItem } from '@/lib/animations'
 import WhatWeDo from '@/components/WhatWeDo'
-import ChatForm from '@/components/ChatForm'
 
 export default function Home() {
   const heroRef        = useRef<HTMLElement>(null)
@@ -91,10 +90,10 @@ export default function Home() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
             >
-              We Build Softwares That
+              We Build Software That
               <br />
               <span className="bg-gradient-to-r from-blue via-blue to-purple bg-clip-text text-transparent">
-                Move Business Forward
+                Moves Business Forward
               </span>
             </motion.h1>
 
@@ -128,7 +127,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Talk to Us
+                  Get Started
                 </motion.button>
               </Link>
             </motion.div>
@@ -182,6 +181,34 @@ export default function Home() {
       >
         <WhatWeDo />
       </div>
+
+      {/* ── RESULTS BAR ── */}
+      <section className="bg-[#1B2A6B] py-10">
+        <div className="container-custom">
+          <p className="text-white/40 text-xs font-bold tracking-[0.2em] uppercase text-center mb-6">Real Results From Real Clients</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { num: '40%', label: 'More Online Orders', client: 'Phool' },
+              { num: '80%', label: 'Scheduling Automated', client: 'Premier Health' },
+              { num: '500+', label: 'Users Connected', client: 'NFSYT' },
+              { num: '<5 min', label: 'AI Deployment', client: 'Airova' },
+            ].map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="text-center"
+              >
+                <p className="font-serif font-bold text-white text-3xl md:text-4xl">{s.num}</p>
+                <p className="text-white/60 text-sm mt-1">{s.label}</p>
+                <p className="text-[#4da6ff] text-xs mt-1 font-medium">{s.client}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── ABOUT ─────────────────────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-[#EEF3FF] via-[#F7F2FF] to-[#E8F4FF] py-16 md:py-24">
@@ -303,42 +330,35 @@ export default function Home() {
           <motion.div variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { quote: "Vektro delivered a polished product on time and the results speak for themselves — our online orders increased by 40% in the first quarter.", name: "Sarah Al-Rashid", role: "Founder, Phool", initial: "S" },
-              { quote: "They understood our complex healthcare requirements and built a system our entire staff loves using. Scheduling is now fully automated.", name: "Dr. James Okafor", role: "Director, Premier Health", initial: "J" },
-              { quote: "The Airova platform exceeded our expectations. The AI assistants are fast to deploy and our clients love the seamless experience.", name: "Marcus Chen", role: "CEO, Airova", initial: "M" },
+              { quote: "Vektro delivered a polished product on time and the results speak for themselves — our online orders increased by 40% in the first quarter.", name: "Sarah Al-Rashid", role: "Founder", company: "Phool", initial: "S", color: 'from-pink-500 to-rose-400', linkedin: '#' },
+              { quote: "They understood our complex healthcare requirements and built a system our entire staff loves using. Scheduling is now fully automated.", name: "Dr. James Okafor", role: "Director", company: "Premier Health", initial: "J", color: 'from-blue to-cyan-400', linkedin: '#' },
+              { quote: "The Airova platform exceeded our expectations. The AI assistants are fast to deploy and our clients love the seamless experience.", name: "Marcus Chen", role: "CEO", company: "Airova", initial: "M", color: 'from-purple to-indigo-400', linkedin: '#' },
             ].map((t, idx) => (
-              <motion.div key={idx} variants={staggerItem} className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
-                <p className="text-gray-700 leading-relaxed mb-6">&ldquo;{t.quote}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-purple flex items-center justify-center text-white font-bold text-sm flex-shrink-0">{t.initial}</div>
-                  <div>
-                    <p className="font-semibold text-navy text-sm">{t.name}</p>
-                    <p className="text-gray-500 text-xs">{t.role}</p>
+              <motion.div key={idx} variants={staggerItem} className="bg-white rounded-2xl p-6 md:p-7 shadow-sm border border-gray-100 flex flex-col">
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="#FBBF24">
+                      <path d="M7 1l1.5 4H13l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/>
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-5 flex-1 text-sm md:text-base">&ldquo;{t.quote}&rdquo;</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-white font-bold text-sm flex-shrink-0 shadow-sm`}>{t.initial}</div>
+                    <div>
+                      <a href={t.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold text-navy text-sm hover:text-blue transition-colors flex items-center gap-1">
+                        {t.name}
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="#0084FF" className="opacity-60"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" fill="#0084FF"/></svg>
+                      </a>
+                      <p className="text-gray-500 text-xs">{t.role}</p>
+                    </div>
                   </div>
+                  <span className="text-xs font-semibold bg-blue/8 text-blue px-3 py-1 rounded-full border border-blue/15">{t.company}</span>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── CONTACT ──────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-[#E8F0FF] via-[#F0EAFF] to-[#E4F0FF] py-16 md:py-24">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-10 md:mb-16"
-          >
-            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 text-navy">Contact Us</h2>
-            <p className="text-gray-600 text-xl max-w-2xl mx-auto">
-              Enter your information below and we'll get back to you with a detailed quote within 24 hours
-            </p>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }} viewport={{ once: true }}>
-            <ChatForm />
           </motion.div>
         </div>
       </section>
@@ -362,7 +382,7 @@ export default function Home() {
             <Link href="/contact">
               <motion.button className="bg-white text-navy px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                Get In Touch Today
+                Get Started
               </motion.button>
             </Link>
           </motion.div>

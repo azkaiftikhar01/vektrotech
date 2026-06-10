@@ -170,10 +170,10 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none ${
+                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none placeholder:text-gray-400 text-gray-900 ${
                         errors.name
                           ? 'border-red-500 focus:border-red-500'
-                          : 'border-light-bg focus:border-blue'
+                          : 'border-gray-300 focus:border-blue'
                       }`}
                       placeholder="Your name"
                     />
@@ -196,10 +196,10 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none ${
+                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none placeholder:text-gray-400 text-gray-900 ${
                         errors.email
                           ? 'border-red-500 focus:border-red-500'
-                          : 'border-light-bg focus:border-blue'
+                          : 'border-gray-300 focus:border-blue'
                       }`}
                       placeholder="your@email.com"
                     />
@@ -222,7 +222,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-light-bg focus:border-blue transition-all focus:outline-none"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-blue transition-all focus:outline-none placeholder:text-gray-400 text-gray-900"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
@@ -240,10 +240,10 @@ export default function Contact() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none ${
+                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none placeholder:text-gray-400 text-gray-900 ${
                         errors.service
                           ? 'border-red-500 focus:border-red-500'
-                          : 'border-light-bg focus:border-blue'
+                          : 'border-gray-300 focus:border-blue'
                       }`}
                     >
                       <option value="">Select a service...</option>
@@ -272,10 +272,10 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none resize-none ${
+                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all focus:outline-none resize-none placeholder:text-gray-400 text-gray-900 ${
                         errors.message
                           ? 'border-red-500 focus:border-red-500'
-                          : 'border-light-bg focus:border-blue'
+                          : 'border-gray-300 focus:border-blue'
                       }`}
                       placeholder="Tell us about your project..."
                     ></textarea>

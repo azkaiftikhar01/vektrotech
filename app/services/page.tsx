@@ -95,20 +95,84 @@ export default function Services() {
   return (
     <div className="pt-20">
       {/* HERO SECTION */}
-      <section className="min-h-screen bg-gradient-to-br from-white via-blue/3 to-purple/3 text-navy flex items-center relative overflow-hidden">
+      <section className="pt-28 pb-16 bg-gradient-to-br from-[#EBF0FF] via-[#F3EEFF] to-[#E6F2FF] text-navy relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 right-10 w-80 h-80 bg-blue/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-10 w-64 h-64 bg-purple/15 rounded-full blur-3xl" />
+        </div>
         <div className="container-custom relative z-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-[11px] font-bold tracking-[0.2em] uppercase text-blue mb-4"
+            >
+              What We Build
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight"
+            >
+              End-to-end software that{' '}
+              <span className="bg-gradient-to-r from-blue to-purple bg-clip-text text-transparent">
+                drives real results
+              </span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl"
+            >
+              Web, mobile, AI, and automation — every service built to move your business forward. No fluff, just outcomes.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-wrap gap-4"
+            >
+              <Link href="/contact">
+                <motion.button
+                  className="btn-primary px-8 py-3 font-semibold"
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  Get Started
+                </motion.button>
+              </Link>
+              <Link href="/portfolio">
+                <motion.button
+                  className="btn-secondary px-8 py-3 font-semibold"
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  See Our Work
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Stat pills */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="flex flex-wrap gap-3 mt-12"
           >
-            <h1 className="font-serif text-6xl md:text-7xl font-bold mb-6">
-              Services Built to Scale
-            </h1>
-            <p className="text-xl text-gray-600">
-              From web and mobile to AI and automation, we offer comprehensive solutions to power your business.
-            </p>
+            {[
+              '40% More Online Orders',
+              '80% Scheduling Automated',
+              'AI Live In <5 Minutes',
+              '500+ Users Connected',
+            ].map((stat, i) => (
+              <span key={i} className="text-xs font-semibold bg-white/70 backdrop-blur-sm border border-blue/15 text-navy px-4 py-2 rounded-full shadow-sm">
+                ✓ {stat}
+              </span>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -311,7 +375,7 @@ export default function Services() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      Get a Quote
+                      Get Started
                     </motion.button>
                   </Link>
                 </div>
@@ -348,7 +412,7 @@ export default function Services() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get In Touch
+                Get Started
               </motion.button>
             </Link>
           </motion.div>

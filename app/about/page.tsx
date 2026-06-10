@@ -147,7 +147,7 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get In Touch
+                Get Started
               </motion.button>
             </Link>
           </motion.div>

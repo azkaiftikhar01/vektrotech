@@ -45,7 +45,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 px-2">
-            <Logo size="small" style={{ height: '44px', width: 'auto' }} />
+            <Logo size="small" style={{ height: '54px', width: 'auto' }} />
           </Link>
 
           {/* Desktop separator */}

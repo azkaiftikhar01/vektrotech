@@ -4,6 +4,7 @@ import Footer from '@/components/Footer'
 import LogoAnimation from '@/components/LogoAnimation'
 import PageTransition from '@/components/PageTransition'
 import NavigationProgress from '@/components/NavigationProgress'
+import ChatBubble from '@/components/ChatBubble'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -82,6 +83,7 @@ export default function RootLayout({
           <Navbar />
           <PageTransition>{children}</PageTransition>
           <Footer />
+          <ChatBubble />
         </div>
       </body>
     </html>

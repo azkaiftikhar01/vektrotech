@@ -137,7 +137,7 @@ export default function PortfolioPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Your Project
+              Get Started
             </motion.button>
           </Link>
         </motion.div>
