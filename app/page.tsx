@@ -13,8 +13,7 @@ export default function Home() {
   const servicesRef    = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let ctx: any
+    let ctx: { revert: () => void } | undefined
     ;(async () => {
       const { gsap }          = await import('gsap')
       const { ScrollTrigger } = await import('gsap/ScrollTrigger')
