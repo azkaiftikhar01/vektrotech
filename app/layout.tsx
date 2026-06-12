@@ -75,6 +75,45 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              itemListElement: [
+                {
+                  '@type': 'SiteNavigationElement',
+                  position: 1,
+                  name: 'Services',
+                  description: 'Web design, mobile apps, AI assistants, QA automation, and custom software development.',
+                  url: 'https://vektro.tech/services',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  position: 2,
+                  name: 'Portfolio',
+                  description: 'See our work — real projects delivering measurable results for clients.',
+                  url: 'https://vektro.tech/portfolio',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  position: 3,
+                  name: 'About',
+                  description: 'Meet the team behind Vektro and learn how we work.',
+                  url: 'https://vektro.tech/about',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  position: 4,
+                  name: 'Contact',
+                  description: 'Get in touch to start your project with Vektro.',
+                  url: 'https://vektro.tech/contact',
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="min-h-screen">
         <div className="w-full overflow-x-hidden bg-transparent">
