@@ -62,8 +62,8 @@ export default function RootLayout({
                 'Full-service software agency specializing in web design, mobile apps, AI assistants, and QA automation.',
               email: 'hello@vektro.tech',
               sameAs: [
-                'https://linkedin.com/company/vektro',
-                'https://instagram.com/vektro.tech',
+                'https://www.linkedin.com/company/vektro-tech/',
+                'https://www.instagram.com/vektro.tech/',
               ],
               serviceType: [
                 'Web Development',
@@ -106,6 +106,13 @@ export default function RootLayout({
                 {
                   '@type': 'SiteNavigationElement',
                   position: 4,
+                  name: 'Blog',
+                  description: 'Insights on AI, cloud, mobile development, QA automation, and web design from the Vektro team.',
+                  url: 'https://vektro.tech/blog',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  position: 5,
                   name: 'Contact',
                   description: 'Get in touch to start your project with Vektro.',
                   url: 'https://vektro.tech/contact',
