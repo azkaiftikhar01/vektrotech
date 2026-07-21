@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import LogoAnimation from '@/components/LogoAnimation'
+import Loader from '@/components/Loader'
 import PageTransition from '@/components/PageTransition'
 import NavigationProgress from '@/components/NavigationProgress'
 import ChatBubble from '@/components/ChatBubble'
@@ -125,7 +125,7 @@ export default function RootLayout({
       <body className="min-h-screen">
         <div className="w-full overflow-x-hidden bg-transparent">
           <NavigationProgress />
-          <LogoAnimation />
+          <Loader />
           <Navbar />
           <PageTransition>{children}</PageTransition>
           <Footer />

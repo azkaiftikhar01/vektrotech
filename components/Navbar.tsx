@@ -58,19 +58,21 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-200 ${
+                className={`group relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-200 ${
                   pathname === link.href
                     ? 'text-blue'
                     : 'text-gray-700 hover:text-navy hover:bg-black/5'
                 }`}
               >
                 {link.label}
-                {pathname === link.href && (
+                {pathname === link.href ? (
                   <motion.span
                     layoutId="active-pill"
                     className="absolute inset-0 bg-white rounded-full -z-10 shadow-sm"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
+                ) : (
+                  <span className="absolute left-4 right-4 bottom-1 h-px bg-navy/50 origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
                 )}
               </Link>
             ))}
