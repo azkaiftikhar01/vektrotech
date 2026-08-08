@@ -7,17 +7,16 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Logo from '@/components/Logo'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
+  { href: '/portfolio', label: 'Work' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
-  { href: '/portfolio', label: 'Portfolio' },
   { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => { setMounted(true) }, [])
@@ -26,86 +25,71 @@ export default function Navbar() {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [isMobileMenuOpen])
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   if (!mounted) return null
 
   return (
     <>
-      {/* ── Pill Navbar ─────────────────────────────────────────────── */}
-      <div className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-        <motion.nav
-          className="pointer-events-auto bg-[#F0EFEB] rounded-full flex items-center gap-2 px-3 py-2.5 shadow-[0_2px_20px_rgba(0,0,0,0.08)] border border-gray-300/80"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          whileHover={{
-            scale: 1.025, y: -2,
-            boxShadow: '0 8px 40px rgba(0,0,0,0.13)',
-            transition: { duration: 0.3 },
-          }}
-        >
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0 px-2">
-            <Logo size="small" style={{ height: '54px', width: 'auto' }} />
+      {/* ── Sticky nav ──────────────────────────────────────────────── */}
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${
+          scrolled ? 'border-border bg-bg/85 backdrop-blur-md' : 'border-transparent bg-transparent'
+        }`}
+      >
+        <div className="container-custom flex items-center justify-between h-16">
+          <Link href="/" className="flex-shrink-0">
+            <Logo size="small" />
           </Link>
 
-          {/* Desktop separator */}
-          <span className="hidden md:block w-px h-5 bg-gray-300/70" />
-
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`group relative text-sm font-medium px-4 py-2 rounded-full transition-colors duration-200 ${
-                  pathname === link.href
-                    ? 'text-blue'
-                    : 'text-gray-700 hover:text-navy hover:bg-black/5'
+                className={`group relative text-sm font-mono py-1 transition-colors duration-200 ${
+                  pathname === link.href ? 'text-text' : 'text-text-muted hover:text-text'
                 }`}
               >
                 {link.label}
-                {pathname === link.href ? (
-                  <motion.span
-                    layoutId="active-pill"
-                    className="absolute inset-0 bg-white rounded-full -z-10 shadow-sm"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                ) : (
-                  <span className="absolute left-4 right-4 bottom-1 h-px bg-navy/50 origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-                )}
+                <span
+                  className={`absolute left-0 right-0 -bottom-0.5 h-px bg-orange origin-left transition-transform duration-200 ease-out ${
+                    pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  }`}
+                />
               </Link>
             ))}
+          </nav>
+
+          <div className="hidden md:block">
+            <Link href="/contact" className="btn-primary text-xs py-2.5 px-5">
+              Start a project
+            </Link>
           </div>
 
-          {/* Desktop separator */}
-          <span className="hidden md:block w-px h-5 bg-gray-300/70" />
-
-          {/* Desktop CTA */}
-          <Link href="/contact" className="hidden md:block">
-            <motion.button
-              className="bg-navy text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-navy/90 transition-colors duration-200"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              Get Started
-            </motion.button>
-          </Link>
-
-          {/* Mobile hamburger — pure 3 lines, X lives inside the overlay */}
+          {/* Mobile hamburger */}
           <button
             className="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-[5px] cursor-pointer"
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open menu"
           >
-            <span className="block h-[1.5px] w-5 bg-navy rounded-full" />
-            <span className="block h-[1.5px] w-5 bg-navy rounded-full" />
-            <span className="block h-[1.5px] w-5 bg-navy rounded-full" />
+            <span className="block h-px w-5 bg-text" />
+            <span className="block h-px w-5 bg-text" />
+            <span className="block h-px w-5 bg-text" />
           </button>
-        </motion.nav>
-      </div>
+        </div>
+      </motion.header>
 
-      {/* ── Full-screen mobile overlay — z-[60] sits above the pill ─── */}
+      {/* ── Full-screen mobile overlay ──────────────────────────────── */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -114,31 +98,25 @@ export default function Navbar() {
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[60] bg-[#1B2A6B] flex flex-col"
+            className="fixed inset-0 z-[60] bg-bg flex flex-col"
           >
-            {/* Top bar — logo + close button */}
-            <div className="flex items-center justify-between px-6 pt-7 pb-4 flex-shrink-0">
+            <div className="flex items-center justify-between px-6 pt-6 pb-4 flex-shrink-0">
               <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                <Logo
-                  size="small"
-                  style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }}
-                />
+                <Logo size="small" />
               </Link>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-label="Close menu"
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-text hover:border-orange hover:text-orange transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                  <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                 </svg>
               </button>
             </div>
 
-            {/* Divider */}
-            <div className="mx-6 h-px bg-white/10 flex-shrink-0" />
+            <div className="mx-6 h-px bg-border flex-shrink-0" />
 
-            {/* Nav links */}
             <nav className="flex flex-col items-start justify-center flex-1 px-8 gap-1">
               {navLinks.map((link, i) => (
                 <motion.div
@@ -152,8 +130,8 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block py-3 font-serif text-[2.2rem] font-bold tracking-tight leading-tight transition-colors duration-200 ${
-                      pathname === link.href ? 'text-[#4da6ff]' : 'text-white/85 hover:text-white'
+                    className={`block py-3 font-mono text-3xl font-medium tracking-tight transition-colors duration-200 ${
+                      pathname === link.href ? 'text-orange' : 'text-text/85 hover:text-text'
                     }`}
                   >
                     {link.label}
@@ -162,7 +140,6 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Bottom CTA + social row */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -170,11 +147,9 @@ export default function Navbar() {
               transition={{ delay: 0.38, duration: 0.4 }}
               className="px-8 pb-10 flex-shrink-0"
             >
-              <div className="h-px bg-white/10 mb-6" />
+              <div className="h-px bg-border mb-6" />
               <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <button className="w-full bg-[#0084FF] text-white font-semibold text-base py-4 rounded-2xl hover:opacity-90 transition-opacity">
-                  Get Started →
-                </button>
+                <button className="btn-primary w-full py-4 text-base">Start a project →</button>
               </Link>
             </motion.div>
           </motion.div>

@@ -8,50 +8,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'navy': '#1B2A6B',
-        'blue': '#155EEF',
-        'blue-deep': '#0A2E85',
-        // legacy utility name kept so existing `purple`/`to-purple` classes sitewide
-        // pick up the new teal brand accent without touching every file
-        'purple': '#2FD8C9',
-        'teal': '#2FD8C9',
-        'ink': '#0B0F14',
-        'light-bg': '#F4F6FB',
-        'body-text': '#6B7280',
+        bg: '#0a0a0a',
+        surface: '#131313',
+        'surface-2': '#1a1a1a',
+        border: '#262626',
+        text: '#f5f5f5',
+        'text-muted': '#8a8a8a',
+        'text-dim': '#5c5c5c',
+        orange: '#f97316',
+        green: '#4ade80',
       },
       fontFamily: {
-        // legacy utility name kept (used as `font-serif` sitewide for headings) —
-        // now points at the bold geometric display face, not an actual serif
-        'serif': ['Sora', 'sans-serif'],
-        'sans': ['DM Sans', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Legacy alias — every `font-serif` usage in the old light theme pointed at the
+        // display/heading face. Mapped to mono during the dark-theme rewrite so nothing
+        // regresses to a system serif before every call site is swept to `font-mono`.
+        serif: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       fontSize: {
-        'h1': '64px',
-        'h2': '48px',
-        'h3': '32px',
+        h1: ['56px', { lineHeight: '1.05' }],
+        h2: ['32px', { lineHeight: '1.15' }],
       },
       animation: {
-        'slide-up': 'slideUp 0.8s ease-out',
-        'fade-in': 'fadeIn 0.6s ease-out',
-        'lift': 'lift 0.3s ease-out',
-        'shiny': 'shiny 6s linear infinite',
+        'fade-in': 'fadeIn 0.35s ease-out',
+        'pulse-slow': 'pulseSlow 2s ease-in-out infinite',
       },
       keyframes: {
-        slideUp: {
-          '0%': { transform: 'translateY(30px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
-        lift: {
-          '0%': { transform: 'translateY(0px)' },
-          '100%': { transform: 'translateY(-8px)' },
-        },
-        shiny: {
-          '0%': { backgroundPosition: '-200% center' },
-          '100%': { backgroundPosition: '200% center' },
+        pulseSlow: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.4' },
         },
       },
     },

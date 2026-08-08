@@ -77,11 +77,11 @@ export default function NFSYTPage() {
   const techStack = ['Next.js', 'React', 'PostgreSQL', 'Node.js', 'Real-time Chat', 'Tailwind CSS']
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue/3 to-purple/3">
+    <div className="min-h-screen bg-bg">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-100 to-purple-100 pt-32 pb-12">
+      <section className="border-b border-border pt-32 pb-12">
         <div className="container-custom">
-          <Link href="/portfolio" className="text-blue font-semibold mb-6 inline-block hover:underline">
+          <Link href="/portfolio" className="text-orange font-mono text-sm mb-6 inline-block hover:underline">
             ← Back to Portfolio
           </Link>
           <motion.div
@@ -89,9 +89,9 @@ export default function NFSYTPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-blue-600 font-semibold text-sm tracking-widest">MENTAL WELLNESS</span>
-            <h1 className="font-serif text-6xl font-bold text-navy mt-4 mb-4">NFSYT</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">
+            <span className="text-orange font-mono text-sm tracking-widest">MENTAL WELLNESS</span>
+            <h1 className="font-mono text-4xl md:text-6xl font-medium text-text mt-4 mb-4">NFSYT</h1>
+            <p className="text-lg text-text-muted max-w-3xl">
               Comprehensive mental wellness platform providing therapy support, mood tracking, wellness exercises, and a caring community. Your journey to better mental health starts here.
             </p>
           </motion.div>
@@ -101,7 +101,7 @@ export default function NFSYTPage() {
       {/* Features Grid */}
       <section className="py-20">
         <div className="container-custom">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-12 text-center">Key Features</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-12 text-center">Key Features</h2>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -113,10 +113,10 @@ export default function NFSYTPage() {
               <motion.div
                 key={feature.title}
                 variants={staggerItem}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-surface border border-border p-8 hover:border-orange transition-colors"
               >
-                <h3 className="font-serif text-xl font-bold text-navy mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="font-mono text-lg font-medium text-text mb-2">{feature.title}</h3>
+                <p className="text-text-muted">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -124,9 +124,9 @@ export default function NFSYTPage() {
       </section>
 
       {/* Wellness Exercises */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface">
         <div className="container-custom">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-12 text-center">Guided Wellness Exercises</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-12 text-center">Guided Wellness Exercises</h2>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -138,9 +138,9 @@ export default function NFSYTPage() {
               <motion.div
                 key={exercise}
                 variants={staggerItem}
-                className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl p-6 text-center hover:shadow-lg transition-shadow"
+                className="bg-surface border border-border p-6 text-center hover:border-orange transition-colors"
               >
-                <p className="font-semibold text-navy">{exercise}</p>
+                <p className="font-mono text-sm text-text">{exercise}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -150,7 +150,7 @@ export default function NFSYTPage() {
       {/* Tech Stack */}
       <section className="py-20">
         <div className="container-custom">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-12 text-center">Technology Stack</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-12 text-center">Technology Stack</h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +161,7 @@ export default function NFSYTPage() {
             {techStack.map((tech) => (
               <div
                 key={tech}
-                className="bg-blue-100 text-blue-600 px-6 py-3 rounded-full text-lg font-semibold border border-blue-300 hover:bg-blue-200 transition-colors"
+                className="bg-surface text-text px-6 py-3 text-sm font-mono border border-border hover:border-orange transition-colors"
               >
                 {tech}
               </div>
@@ -171,9 +171,9 @@ export default function NFSYTPage() {
       </section>
 
       {/* Screenshots Showcase */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface">
         <div className="container-custom">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-12 text-center">Platform Overview</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-12 text-center">Platform Overview</h2>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -191,9 +191,9 @@ export default function NFSYTPage() {
               >
                 {/* Content */}
                 <div className={idx % 2 === 1 ? 'lg:order-2' : ''}>
-                  <span className="text-blue-600 font-semibold text-sm">SCREENSHOT {screenshot.id}</span>
-                  <h3 className="font-serif text-3xl font-bold text-navy mt-2 mb-4">{screenshot.title}</h3>
-                  <p className="text-gray-700 text-lg mb-6">{screenshot.description}</p>
+                  <span className="text-orange font-mono text-sm">SCREENSHOT {screenshot.id}</span>
+                  <h3 className="font-mono text-2xl md:text-3xl font-medium text-text mt-2 mb-4">{screenshot.title}</h3>
+                  <p className="text-text-muted text-lg mb-6">{screenshot.description}</p>
                 </div>
 
                 {/* Screenshot */}
@@ -201,7 +201,7 @@ export default function NFSYTPage() {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
-                    className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200"
+                    className="relative overflow-hidden bg-surface border border-border"
                   >
                     <Image
                       src={screenshot.image}
@@ -221,8 +221,8 @@ export default function NFSYTPage() {
       {/* CTA */}
       <section className="py-20">
         <div className="container-custom text-center">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-6">Ready to launch a mental wellness platform?</h2>
-          <p className="text-gray-700 text-lg mb-10 max-w-2xl mx-auto">
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-6">Ready to launch a mental wellness platform?</h2>
+          <p className="text-text-muted text-lg mb-10 max-w-2xl mx-auto">
             Let's build a compassionate, feature-rich platform that truly makes a difference in people's mental health.
           </p>
           <Link href="/contact">

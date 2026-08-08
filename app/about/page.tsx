@@ -2,27 +2,25 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
+import { staggerContainer, staggerItem } from '@/lib/animations'
 
 export default function About() {
   return (
-    <div className="pt-20">
+    <div className="pt-32 bg-bg">
       {/* HERO SECTION */}
-      <section className="min-h-screen bg-gradient-to-br from-white via-blue/3 to-purple/3 text-navy flex items-center relative overflow-hidden">
-        <div className="container-custom relative z-10">
+      <section className="min-h-[70vh] flex items-center border-b border-border">
+        <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-serif text-6xl md:text-7xl font-bold mb-6">
-              We are Vektro;
+            <h1 className="font-mono font-medium text-4xl md:text-h1 text-text mb-6">
+              We are vektro<span className="text-orange">;</span>
             </h1>
-            <p className="text-2xl text-blue font-medium tracking-wide">
-              Connect. Build. Elevate.
-            </p>
-            <p className="text-gray-600 text-xl mt-6">
+            <p className="text-xl text-orange font-mono tracking-wide">Connect. Build. Elevate.</p>
+            <p className="text-text-muted text-lg md:text-xl mt-6">
               A full-service software agency built by builders for forward-thinking businesses.
             </p>
           </motion.div>
@@ -30,17 +28,17 @@ export default function About() {
       </section>
 
       {/* MISSION - 3 PILLARS */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 border-b border-border">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
           >
-            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4">Our Core Values</h2>
-            <p className="text-body-text text-lg max-w-2xl mx-auto">
+            <h2 className="font-mono text-3xl md:text-h2 text-text mb-4">Our core values</h2>
+            <p className="text-text-muted text-lg max-w-2xl mx-auto">
               Three principles that guide everything we build
             </p>
           </motion.div>
@@ -50,7 +48,7 @@ export default function About() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border"
           >
             {[
               {
@@ -66,17 +64,12 @@ export default function About() {
               {
                 title: 'Elevate',
                 description:
-                  'We don\'t just deliver projects - we elevate your business forward. Your success is our success.',
+                  "We don't just deliver projects - we elevate your business forward. Your success is our success.",
               },
             ].map((pillar, idx) => (
-              <motion.div
-                key={idx}
-                variants={staggerItem}
-                className="bg-light-bg p-8 rounded-lg hover:shadow-lg transition-all duration-300"
-                whileHover={{ y: -8 }}
-              >
-                <h3 className="font-serif text-2xl font-bold mb-3">{pillar.title}</h3>
-                <p className="text-body-text leading-relaxed">{pillar.description}</p>
+              <motion.div key={idx} variants={staggerItem} className="bg-bg p-8 hover:bg-surface transition-colors">
+                <h3 className="font-mono text-2xl text-orange mb-3">{pillar.title}</h3>
+                <p className="text-text-muted leading-relaxed">{pillar.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -84,17 +77,16 @@ export default function About() {
       </section>
 
       {/* ABOUT BODY TEXT */}
-      <section className="bg-light-bg py-16 md:py-20">
+      <section className="py-16 md:py-20 border-b border-border">
         <div className="container-custom max-w-3xl">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            className="bg-white p-6 md:p-12 rounded-lg"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 md:mb-8">Who We Are</h2>
-            <div className="space-y-6 text-lg text-body-text leading-relaxed">
+            <h2 className="font-mono text-3xl md:text-4xl text-text mb-6 md:mb-8">Who we are</h2>
+            <div className="space-y-6 text-lg text-text-muted leading-relaxed">
               <p>
                 Vektro is a full-service software agency built for businesses that refuse to stay
                 average. We don&apos;t just write code - we solve problems, remove friction, and build
@@ -103,7 +95,7 @@ export default function About() {
               <p>
                 Founded on the belief that great software is a combination of strategic thinking,
                 technical excellence, and obsessive attention to detail, we&apos;ve built a team of
-                specialists in web development, mobile apps, AI & automation, and quality assurance.
+                specialists in web development, mobile apps, AI &amp; automation, and quality assurance.
               </p>
               <p>
                 Every project we take on is an opportunity to create something meaningful. We partner
@@ -121,34 +113,23 @@ export default function About() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="gradient-bg text-white py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl top-10 -right-48 animate-pulse"></div>
-          <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl bottom-10 -left-48 animate-pulse"></div>
-        </div>
-
-        <div className="container-custom relative z-10">
+      <section className="py-16 md:py-20">
+        <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 md:mb-6">
+            <h2 className="font-mono text-2xl md:text-h2 text-text mb-4 md:mb-6">
               Ready to build something great?
             </h2>
-            <p className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
+            <p className="text-text-muted mb-8 md:mb-10 max-w-2xl mx-auto">
               Let&apos;s talk about your project and how we can help move your business forward.
             </p>
-            <Link href="/contact">
-              <motion.button
-                className="bg-white text-navy px-8 py-4 rounded-lg font-bold hover:shadow-2xl transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Started
-              </motion.button>
+            <Link href="/contact" className="btn-primary">
+              Start a project
             </Link>
           </motion.div>
         </div>

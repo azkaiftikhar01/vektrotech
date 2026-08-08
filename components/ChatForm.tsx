@@ -123,9 +123,9 @@ export default function ChatForm() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white rounded-3xl border border-blue/20 shadow-lg overflow-hidden flex flex-col h-[480px] sm:h-[600px]">
+      <div className="bg-surface border border-border overflow-hidden flex flex-col h-[480px] sm:h-[600px]">
         {/* Chat Container */}
-        <div className="flex-1 overflow-y-auto p-8 space-y-4 bg-gradient-to-br from-white via-blue/2 to-white">
+        <div className="flex-1 overflow-y-auto p-8 space-y-4">
           <AnimatePresence mode="wait">
             {/* Display all completed messages */}
             {steps.slice(0, currentStep).map((step, idx) => (
@@ -137,10 +137,10 @@ export default function ChatForm() {
               >
                 {step.type === 'message' && (
                   <div className="flex items-end gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue to-purple flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-bg text-xs font-mono flex-shrink-0">
                       V
                     </div>
-                    <div className="bg-blue/10 text-navy px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
+                    <div className="bg-surface-2 text-text px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
                       {step.content}
                     </div>
                   </div>
@@ -148,15 +148,15 @@ export default function ChatForm() {
                 {step.type !== 'message' && formData[step.key as keyof typeof formData] && (
                   <>
                     <div className="flex items-end gap-3">
-                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue to-purple flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                      <div className="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-bg text-xs font-mono flex-shrink-0">
                         V
                       </div>
-                      <div className="bg-blue/10 text-navy px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
+                      <div className="bg-surface-2 text-text px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
                         {step.label}
                       </div>
                     </div>
                     <div className="flex justify-end mt-2">
-                      <div className="bg-navy text-white px-4 py-2 rounded-2xl rounded-br-none max-w-md text-sm">
+                      <div className="bg-orange text-bg px-4 py-2 rounded-2xl rounded-br-none max-w-md text-sm">
                         {formData[step.key as keyof typeof formData]}
                       </div>
                     </div>
@@ -175,19 +175,19 @@ export default function ChatForm() {
               >
                 {steps[currentStep].type === 'message' ? (
                   <div className="flex items-end gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue to-purple flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-bg text-xs font-mono flex-shrink-0">
                       V
                     </div>
-                    <div className="bg-blue/10 text-navy px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
+                    <div className="bg-surface-2 text-text px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
                       {steps[currentStep].content}
                     </div>
                   </div>
                 ) : (
                   <div className="flex items-end gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue to-purple flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-bg text-xs font-mono flex-shrink-0">
                       V
                     </div>
-                    <div className="bg-blue/10 text-navy px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
+                    <div className="bg-surface-2 text-text px-4 py-3 rounded-2xl rounded-bl-none max-w-md text-sm">
                       {steps[currentStep].label}
                     </div>
                   </div>
@@ -205,8 +205,8 @@ export default function ChatForm() {
                 className="text-center py-8 space-y-3"
               >
                 <div className="text-4xl">✨</div>
-                <p className="text-navy font-semibold">Thank you!</p>
-                <p className="text-gray-600 text-sm">We'll get back to you with a quote within 24 hours.</p>
+                <p className="text-text font-mono">Thank you!</p>
+                <p className="text-text-muted text-sm">We'll get back to you with a quote within 24 hours.</p>
               </motion.div>
             )}
 
@@ -216,7 +216,7 @@ export default function ChatForm() {
                 key="error"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-red-50 text-red-700 px-4 py-2 rounded-lg text-sm"
+                className="bg-orange/10 text-orange px-4 py-2 rounded-lg text-sm"
               >
                 {error}
               </motion.div>
@@ -226,7 +226,7 @@ export default function ChatForm() {
 
         {/* Input Area */}
         {!submitted && currentStep < steps.length && (
-          <div className="border-t border-blue/10 bg-white p-4 space-y-3">
+          <div className="border-t border-border bg-surface p-4 space-y-3">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -242,14 +242,14 @@ export default function ChatForm() {
                   onBlur={(e) => {
                     if (e.target.value.trim()) handleNext(e.target.value)
                   }}
-                  className="flex-1 px-4 py-2 rounded-full border border-blue/30 text-navy placeholder-gray-400 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all text-sm"
+                  className="flex-1 px-4 py-2 rounded-full border border-border bg-bg text-text placeholder-text-dim focus:outline-none focus:border-orange transition-all text-sm"
                 />
               )}
               {currentStepData.type === 'select' && (
                 <select
                   autoFocus
                   onChange={handleInputChange}
-                  className="flex-1 px-4 py-2 rounded-full border border-blue/30 text-navy focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all text-sm appearance-none bg-white"
+                  className="flex-1 px-4 py-2 rounded-full border border-border bg-bg text-text focus:outline-none focus:border-orange transition-all text-sm appearance-none"
                 >
                   <option value="">Select...</option>
                   {(currentStepData.options || []).map((opt, i) => (
@@ -268,7 +268,7 @@ export default function ChatForm() {
                   onBlur={(e) => {
                     if (e.target.value.trim()) handleNext(e.target.value)
                   }}
-                  className="flex-1 px-4 py-2 rounded-xl border border-blue/30 text-navy placeholder-gray-400 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all text-sm resize-none"
+                  className="flex-1 px-4 py-2 rounded-xl border border-border bg-bg text-text placeholder-text-dim focus:outline-none focus:border-orange transition-all text-sm resize-none"
                 />
               )}
             </motion.div>
@@ -281,7 +281,7 @@ export default function ChatForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t border-blue/10 bg-gradient-to-r from-blue/5 to-purple/5 px-4 py-4"
+            className="border-t border-border bg-surface-2 px-4 py-4"
           >
             <button
               onClick={handleSubmit}
@@ -299,11 +299,11 @@ export default function ChatForm() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.5 }}
-            className="border-t border-blue/10 bg-gradient-to-r from-blue/5 to-purple/5 px-4 py-3 text-center"
+            className="border-t border-border bg-surface-2 px-4 py-3 text-center"
           >
             <button
               onClick={() => handleNext()}
-              className="text-blue hover:text-purple font-medium text-sm transition-colors"
+              className="text-orange hover:text-orange/70 font-medium text-sm transition-colors"
             >
               Continue →
             </button>

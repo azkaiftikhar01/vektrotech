@@ -1,9 +1,11 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import SelectionFrame from './SelectionFrame'
+import { useReducedMotion } from '@/lib/useReducedMotion'
 
 function ArrowRight({ className = 'w-4 h-4' }: { className?: string }) {
   return (
@@ -16,88 +18,128 @@ function ArrowRight({ className = 'w-4 h-4' }: { className?: string }) {
 const projects = [
   {
     tag: 'E-COMMERCE',
-    title: 'Phool — 40% more online orders',
+    title: 'Phool — checkout rebuild',
+    description: 'Rebuilt the checkout flow for a flower delivery brand end to end, from cart to confirmation.',
+    result: '40% more orders',
     href: '/portfolio/phool',
     image: '/portfolio/phool/Screenshot 2026-05-31 174131.png',
-    rotate: -7,
-    x: -70,
-    y: 8,
   },
   {
     tag: 'HEALTHCARE',
-    title: 'Premier Health — 80% scheduling automated',
+    title: 'Premier Health — scheduling automation',
+    description: 'Automated appointment scheduling for a medical practice, cutting admin work sitewide.',
+    result: '80% scheduling automated',
     href: '/portfolio/premier-health',
     image: '/portfolio/premierhealth/Screenshot 2026-05-31 174224.png',
-    rotate: 2,
-    x: 0,
-    y: -6,
   },
   {
     tag: 'AI PRODUCT',
-    title: 'Airova — under 5 min to deploy',
+    title: 'Airova — AI assistant platform',
+    description: 'Personalized AI assistants businesses can deploy across web, WhatsApp, and Telegram.',
+    result: '<5min to deploy',
     href: '/portfolio/airova',
     image: '/portfolio/airova/Screenshot 2026-05-31 180126.png',
-    rotate: 8,
-    x: 70,
-    y: 10,
   },
 ]
 
-export default function CaseStudiesShowcase() {
+function CardBody({ project }: { project: (typeof projects)[number] }) {
   return (
-    <section className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-28">
-      <div className="text-center mb-16">
-        <span className="text-xs uppercase tracking-widest text-gray-400">Showcase</span>
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy mt-3">Real work, real results.</h2>
-        <p className="text-sm text-gray-400 mt-3">Hover a card to bring it to the front.</p>
+    <Link href={project.href}>
+      <motion.div
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.2 }}
+        className="group grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-bg border border-border hover:border-orange p-6 md:p-10 transition-colors duration-200"
+      >
+        <SelectionFrame dims={project.tag}>
+          <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 90vw, 45vw"
+            />
+          </div>
+        </SelectionFrame>
+
+        <div>
+          <span className="text-[11px] font-mono tracking-widest text-text-dim">{project.tag}</span>
+          <h3 className="font-mono text-xl md:text-2xl text-text mt-3 leading-snug flex items-center gap-2">
+            {project.title}
+            <ArrowRight className="w-4 h-4 flex-shrink-0 text-text-dim group-hover:text-orange group-hover:translate-x-1 transition-all" />
+          </h3>
+          <p className="text-sm text-text-muted mt-3 leading-relaxed max-w-md">{project.description}</p>
+          <p className="font-mono text-lg text-orange mt-6">{project.result}</p>
+        </div>
+      </motion.div>
+    </Link>
+  )
+}
+
+function StackCard({
+  project,
+  index,
+  isLast,
+  reducedMotion,
+}: {
+  project: (typeof projects)[number]
+  index: number
+  isLast: boolean
+  reducedMotion: boolean
+}) {
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: wrapperRef, offset: ['start start', 'end start'] })
+  const scale = useTransform(scrollYProgress, [0, 1], [1, isLast ? 1 : 0.94])
+  const opacity = useTransform(scrollYProgress, [0.65, 1], [1, isLast ? 1 : 0.6])
+
+  // Reduced motion: plain stacked blocks, no scroll-pin/scale-linked motion.
+  if (reducedMotion) {
+    return (
+      <div className="container-custom py-6">
+        <CardBody project={project} />
+      </div>
+    )
+  }
+
+  return (
+    <div ref={wrapperRef} className="relative" style={{ height: isLast ? '100vh' : '130vh' }}>
+      <div
+        className="sticky flex items-center px-6"
+        style={{ top: `${88 + index * 16}px`, height: `calc(100vh - ${88 + index * 16}px)`, zIndex: index + 1 }}
+      >
+        <motion.div style={{ scale, opacity }} className="w-full max-w-5xl mx-auto">
+          <CardBody project={project} />
+        </motion.div>
+      </div>
+    </div>
+  )
+}
+
+export default function CaseStudiesShowcase() {
+  const reducedMotion = useReducedMotion()
+
+  return (
+    <section className="relative">
+      <div className="container-custom text-center pt-24 pb-4">
+        <span className="text-xs font-mono uppercase tracking-widest text-text-dim">Selected work</span>
+        <h2 className="font-mono text-2xl md:text-h2 text-text mt-3">Real work, real results.</h2>
       </div>
 
-      <div className="relative h-[440px] md:h-[560px] flex items-center justify-center mb-20">
-        {projects.map((p, i) => (
-          <motion.div
-            key={p.href}
-            initial={{ opacity: 0, y: 60, x: p.x, rotate: p.rotate }}
-            whileInView={{ opacity: 1, y: p.y, x: p.x, rotate: p.rotate }}
-            whileHover={{ rotate: 0, scale: 1.06, y: p.y - 26, zIndex: 30 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            style={{ zIndex: i }}
-            className="absolute w-[86%] md:w-[500px] cursor-pointer"
-          >
-            <Link href={p.href}>
-              <SelectionFrame>
-                <div
-                  className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-navy/10 bg-white"
-                  style={{ boxShadow: '0 24px 60px rgba(27,42,107,0.2)' }}
-                >
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 90vw, 500px"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-white/95 backdrop-blur-sm px-5 py-3.5">
-                    <span className="text-[10px] font-semibold tracking-widest text-blue">{p.tag}</span>
-                    <h3 className="font-serif font-bold text-navy text-base mt-0.5 leading-snug flex items-center gap-1.5">
-                      {p.title}
-                      <ArrowRight className="w-3 h-3 flex-shrink-0" />
-                    </h3>
-                  </div>
-                </div>
-              </SelectionFrame>
-            </Link>
-          </motion.div>
-        ))}
-      </div>
+      {projects.map((p, i) => (
+        <StackCard
+          key={p.href}
+          project={p}
+          index={i}
+          isLast={i === projects.length - 1}
+          reducedMotion={reducedMotion}
+        />
+      ))}
 
-      <div className="text-center">
-        <p className="text-gray-400 text-sm mb-1">Want to see more?</p>
-        <h3 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-6">Browse the full portfolio</h3>
-        <Link href="/portfolio">
-          <button className="btn-outline inline-flex items-center gap-2 text-sm px-6 py-3">
-            View all case studies <ArrowRight className="w-4 h-4" />
-          </button>
+      <div className="text-center py-20">
+        <p className="text-text-dim text-sm mb-1">Want to see more?</p>
+        <h3 className="font-mono text-xl md:text-2xl text-text mb-6">Browse the full portfolio</h3>
+        <Link href="/portfolio" className="btn-outline inline-flex items-center gap-2">
+          View all case studies <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </section>

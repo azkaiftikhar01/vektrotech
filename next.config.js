@@ -17,7 +17,13 @@ const nextConfig = {
         ],
       },
       {
-        source: '/favicon.png',
+        source: '/icon.svg',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
+        ],
+      },
+      {
+        source: '/apple-icon.png',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
         ],

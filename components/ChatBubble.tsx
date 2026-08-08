@@ -18,27 +18,23 @@ export default function ChatBubble() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.28, ease: [0.33, 1, 0.68, 1] }}
-            className="w-[360px] max-w-[calc(100vw-2.5rem)] rounded-3xl shadow-2xl overflow-hidden border border-gray-100 pointer-events-auto"
-            style={{ background: '#fff' }}
+            className="w-[360px] max-w-[calc(100vw-2.5rem)] overflow-hidden border border-border bg-surface pointer-events-auto"
           >
             {/* Header */}
-            <div
-              className="flex items-center justify-between px-5 py-4"
-              style={{ background: 'linear-gradient(135deg, #0084FF 0%, #6D3ACF 100%)' }}
-            >
+            <div className="flex items-center justify-between px-5 py-4 bg-orange">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-bold text-white text-sm flex-shrink-0">
+                <div className="w-9 h-9 rounded-full bg-bg/15 flex items-center justify-center font-mono font-medium text-bg text-sm flex-shrink-0">
                   V
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm leading-none">Vektro</p>
-                  <p className="text-white/70 text-xs mt-0.5">We reply within 24 h</p>
+                  <p className="text-bg font-mono font-medium text-sm leading-none">vektro;</p>
+                  <p className="text-bg/70 text-xs mt-0.5">We reply within 24 h</p>
                 </div>
-                <span className="ml-1 w-2 h-2 bg-green-400 rounded-full flex-shrink-0" />
+                <span className="ml-1 w-2 h-2 bg-green rounded-full flex-shrink-0" />
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white transition-colors p-1"
+                className="text-bg/80 hover:text-bg transition-colors p-1"
                 aria-label="Close"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -59,8 +55,7 @@ export default function ChatBubble() {
       <motion.button
         onClick={() => setIsOpen((v) => !v)}
         aria-label="Open chat"
-        className="pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg"
-        style={{ background: 'linear-gradient(135deg, #0084FF 0%, #6D3ACF 100%)' }}
+        className="pointer-events-auto w-14 h-14 rounded-full flex items-center justify-center bg-orange text-bg hover:bg-orange/85 transition-colors"
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
         animate={isOpen ? { rotate: 90 } : { rotate: 0 }}

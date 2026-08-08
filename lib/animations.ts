@@ -39,3 +39,15 @@ export const hoverLift = {
   whileHover: { y: -8 },
   transition: { duration: 0.3 },
 }
+
+// Restrained scroll-reveal per the dark/technical design system: short duration,
+// small translate, staggered ~80ms per child, plays once.
+export const revealContainer: Variants = {
+  hidden: { opacity: 1 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+}
+
+export const revealItem: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.33, 1, 0.68, 1] } },
+}

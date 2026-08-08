@@ -2,382 +2,141 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { fadeInUp } from '@/lib/animations'
 
 const services = [
   {
-    id: 'website',
-    title: 'Website Design & Development',
+    title: 'Custom software development',
     description:
-      'We design and build modern, responsive websites that look stunning and perform flawlessly. From concept to launch, we handle everything.',
-    features: [
-      'Responsive Design',
-      'SEO Optimization',
-      'E-commerce Solutions',
-      'CMS Integration',
-    ],
-    color: 'from-blue-300 to-cyan-300',
-    domain: 'website.com',
+      'Bespoke software built specifically for your business, from internal tools to client-facing platforms.',
+    features: ['Full-stack development', 'Architecture design', 'Database design', 'Cloud deployment'],
   },
   {
-    id: 'mobile',
-    title: 'Mobile App Development',
-    description:
-      'Native and cross-platform mobile apps built with user experience and performance in mind. We bring your ideas to both iOS and Android.',
-    features: [
-      'Native Development',
-      'Cross-platform Apps',
-      'UI/UX Design',
-      'App Store Deployment',
-    ],
-    color: 'from-purple-300 to-pink-300',
-    domain: 'app.dev',
+    title: 'Web & mobile development',
+    description: 'Responsive web apps and native mobile apps engineered for performance and built to convert.',
+    features: ['Responsive web apps', 'Native iOS & Android', 'Cross-platform builds', 'App store deployment'],
   },
   {
-    id: 'ai-chatbots',
-    title: 'AI Chatbots & Virtual Assistants',
-    description:
-      'Intelligent conversational AI that engages your users, answers questions, and automates support. Available 24/7 across web and mobile.',
-    features: [
-      'Natural Language Processing',
-      'Multi-channel Integration',
-      'Custom Training Data',
-      'Analytics & Insights',
-    ],
-    color: 'from-orange-300 to-red-300',
-    domain: 'chat.ai',
+    title: 'SaaS product development',
+    description: 'From zero to a shippable product — architecture, billing, and onboarding built to scale.',
+    features: ['Multi-tenant architecture', 'Billing & subscriptions', 'Onboarding flows', 'Roadmap iteration'],
   },
   {
-    id: 'ai-personalized',
-    title: 'Personalised AI Assistants',
-    description:
-      'Custom AI solutions tailored to your specific business needs. From recommendation engines to predictive analytics, we build smart software.',
-    features: [
-      'Machine Learning Models',
-      'Predictive Analytics',
-      'Custom Algorithms',
-      'Integration Services',
-    ],
-    color: 'from-indigo-300 to-purple-300',
-    domain: 'ai-dashboard.app',
+    title: 'AI & automation',
+    description: 'Custom AI assistants and workflow automation deployed across the channels your users are on.',
+    features: ['Custom AI assistants', 'Workflow automation', 'Multi-channel deployment', 'Model integration'],
   },
   {
-    id: 'qa',
-    title: 'QA Automation & Manual Testing',
-    description:
-      'Comprehensive quality assurance that catches bugs before your users do. We combine automated testing with expert manual validation.',
-    features: [
-      'Test Automation',
-      'Performance Testing',
-      'Security Testing',
-      'Continuous Integration',
-    ],
-    color: 'from-green-300 to-emerald-300',
-    domain: 'qa-results.test',
+    title: 'UI/UX design',
+    description: 'Interfaces designed for clarity first — research and iteration before a single pixel ships.',
+    features: ['User research', 'Wireframing & prototyping', 'Design systems', 'Usability testing'],
   },
   {
-    id: 'custom',
-    title: 'Custom Software Development',
-    description:
-      'Bespoke software solutions built specifically for your business. From internal tools to client-facing platforms, we build what you need.',
-    features: [
-      'Full-Stack Development',
-      'Architecture Design',
-      'Database Solutions',
-      'Cloud Deployment',
-    ],
-    color: 'from-rose-300 to-pink-300',
-    domain: 'custom.build',
+    title: 'Cloud, DevOps & CI/CD',
+    description: 'Always-on infrastructure with pipelines that ship safely, every time.',
+    features: ['Infrastructure as code', 'Automated pipelines', 'Monitoring & alerting', 'Zero-downtime deploys'],
+  },
+  {
+    title: 'QA & testing',
+    description: 'Automated and manual testing baked into every release, not bolted on at the end.',
+    features: ['Test automation', 'Manual QA', 'Performance testing', 'Security testing'],
+  },
+  {
+    title: 'System integrations',
+    description: 'Connecting the tools your business already runs on, cleanly and reliably.',
+    features: ['API integrations', 'Third-party services', 'Data migration', 'Legacy system bridges'],
   },
 ]
 
+const stats = ['40% more online orders', '80% scheduling automated', 'AI live in <5min', '500+ users connected']
+
 export default function Services() {
   return (
-    <div className="pt-20">
-      {/* HERO SECTION */}
-      <section className="pt-28 pb-16 bg-gradient-to-br from-[#EBF0FF] via-[#F3EEFF] to-[#E6F2FF] text-navy relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-10 w-80 h-80 bg-blue/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-10 w-64 h-64 bg-purple/15 rounded-full blur-3xl" />
-        </div>
-        <div className="container-custom relative z-10">
+    <div className="pt-32 bg-bg">
+      {/* HERO */}
+      <section className="border-b border-border pb-16">
+        <div className="container-custom">
           <div className="max-w-3xl">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-[11px] font-bold tracking-[0.2em] uppercase text-blue mb-4"
+              transition={{ duration: 0.4 }}
+              className="text-xs font-mono tracking-widest uppercase text-orange mb-4"
             >
-              What We Build
+              What we build
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-5 leading-tight"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-mono font-medium text-3xl md:text-h1 text-text leading-tight"
             >
-              End-to-end software that{' '}
-              <span className="bg-gradient-to-r from-blue to-purple bg-clip-text text-transparent">
-                drives real results
-              </span>
+              End-to-end software that drives real results<span className="text-orange">.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-base md:text-lg text-text-muted mt-6 max-w-xl"
             >
-              Web, mobile, AI, and automation — every service built to move your business forward. No fluff, just outcomes.
+              Web, mobile, AI, and automation — every service built to move your business forward. No fluff, just
+              outcomes.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-wrap gap-4"
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex flex-wrap gap-4 mt-8"
             >
-              <Link href="/contact">
-                <motion.button
-                  className="btn-primary px-8 py-3 font-semibold"
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
-                >
-                  Get Started
-                </motion.button>
+              <Link href="/contact" className="btn-primary">
+                Start a project
               </Link>
-              <Link href="/portfolio">
-                <motion.button
-                  className="btn-secondary px-8 py-3 font-semibold"
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
-                >
-                  See Our Work
-                </motion.button>
+              <Link href="/portfolio" className="btn-outline">
+                See the work
               </Link>
             </motion.div>
           </div>
 
-          {/* Stat pills */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
             className="flex flex-wrap gap-3 mt-12"
           >
-            {[
-              '40% More Online Orders',
-              '80% Scheduling Automated',
-              'AI Live In <5 Minutes',
-              '500+ Users Connected',
-            ].map((stat, i) => (
-              <span key={i} className="text-xs font-semibold bg-white/70 backdrop-blur-sm border border-blue/15 text-navy px-4 py-2 rounded-full shadow-sm">
-                ✓ {stat}
+            {stats.map((stat) => (
+              <span key={stat} className="text-xs font-mono border border-border text-text-muted px-3 py-1.5">
+                {stat}
               </span>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* SERVICES - ALTERNATING LAYOUT */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="container-custom space-y-24">
+      {/* SERVICES LIST */}
+      <section className="py-4">
+        <div className="container-custom divide-y divide-border">
           {services.map((service, idx) => (
             <motion.div
-              key={service.id}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              id={service.id}
+              key={service.title}
+              id={service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true, margin: '-10% 0px' }}
+              className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-12 py-14"
             >
-              <div
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  idx % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Mockup Screen */}
-                <motion.div
-                  className={`${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className={`relative bg-gradient-to-br ${service.color} rounded-3xl shadow-2xl overflow-hidden`}>
-                    {/* Browser Chrome */}
-                    <div className="bg-white rounded-t-2xl px-6 py-4 flex items-center gap-2 border-b border-gray-200">
-                      <div className="flex gap-2">
-                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                      </div>
-                      <div className="flex-1 mx-4">
-                        <div className="bg-gray-100 rounded px-3 py-1 text-xs text-gray-600 text-center">
-                          {service.domain}
-                        </div>
-                      </div>
+              <span className="font-mono text-2xl text-text-dim">{String(idx + 1).padStart(2, '0')}</span>
+
+              <div>
+                <h2 className="font-mono text-2xl md:text-3xl text-text mb-3">{service.title}</h2>
+                <p className="text-text-muted leading-relaxed max-w-xl mb-6">{service.description}</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
+                  {service.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-2.5 text-sm text-text-muted">
+                      <span className="text-orange">→</span>
+                      <span>{feature}</span>
                     </div>
-
-                    {/* Content - Service Specific */}
-                    {service.id === 'website' && (
-                      <div className="aspect-video bg-gradient-to-br from-white via-blue/5 to-cyan/5 flex flex-col items-center justify-center p-8">
-                        <motion.div
-                          animate={{ y: [0, -10, 0] }}
-                          transition={{ duration: 3, repeat: Infinity }}
-                          className="text-center"
-                        >
-                          <h3 className="font-serif text-3xl font-bold text-navy mb-2">Modern Websites</h3>
-                          <p className="text-gray-600 text-sm">Responsive & High Performance</p>
-                        </motion.div>
-                      </div>
-                    )}
-
-                    {service.id === 'mobile' && (
-                      <div className="aspect-video bg-gradient-to-br from-white via-purple/5 to-pink/5 flex flex-col items-center justify-center p-8">
-                        <motion.div
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="text-center"
-                        >
-                          <h3 className="font-serif text-3xl font-bold text-navy">Native Apps</h3>
-                          <p className="text-gray-600 text-sm mt-2">iOS & Android</p>
-                        </motion.div>
-                      </div>
-                    )}
-
-                    {service.id === 'ai-chatbots' && (
-                      <div className="aspect-video bg-gradient-to-br from-white via-orange/5 to-red/5 flex flex-col justify-end gap-3 p-6">
-                        <motion.div
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.2 }}
-                          className="bg-gray-200 rounded-lg py-2 px-4 text-sm text-gray-700 w-3/4"
-                        >
-                          How can I help you?
-                        </motion.div>
-                        <motion.div
-                          initial={{ opacity: 0, x: 20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.4 }}
-                          className="bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg py-2 px-4 text-sm ml-auto w-3/4 text-right"
-                        >
-                          24/7 Support Ready!
-                        </motion.div>
-                        <motion.div
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.6 }}
-                          className="bg-gray-200 rounded-lg py-2 px-4 text-sm text-gray-700 w-3/4"
-                        >
-                          We are here to help
-                        </motion.div>
-                      </div>
-                    )}
-
-                    {service.id === 'ai-personalized' && (
-                      <div className="aspect-video bg-gradient-to-br from-white via-indigo/5 to-purple/5 p-6 flex flex-col justify-between">
-                        <div className="space-y-3">
-                          {[40, 65, 85].map((width, i) => (
-                            <motion.div
-                              key={i}
-                              initial={{ width: '0%' }}
-                              whileInView={{ width: `${width}%` }}
-                              transition={{ delay: i * 0.15, duration: 0.8 }}
-                              className="h-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
-                            ></motion.div>
-                          ))}
-                        </div>
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                          className="w-8 h-8 border-3 border-purple-300 border-t-purple-600 rounded-full mx-auto"
-                        ></motion.div>
-                      </div>
-                    )}
-
-                    {service.id === 'qa' && (
-                      <div className="aspect-video bg-gradient-to-br from-white via-green/5 to-emerald/5 p-6 flex flex-col justify-center gap-4">
-                        {['Functionality', 'Performance', 'Security'].map((test, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ delay: i * 0.2 }}
-                            className="flex items-center gap-3"
-                          >
-                            <motion.div
-                              animate={{ scale: [1, 1.2, 1] }}
-                              transition={{ delay: i * 0.2, duration: 0.6, repeat: Infinity }}
-                              className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
-                            >
-                              <span className="text-white font-bold">✓</span>
-                            </motion.div>
-                            <span className="text-gray-700 font-medium">{test}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-                    )}
-
-                    {service.id === 'custom' && (
-                      <div className="aspect-video bg-gradient-to-br from-white via-rose/5 to-pink/5 p-6 flex flex-col justify-between">
-                        <div className="grid grid-cols-2 gap-3">
-                          {[1, 2, 3, 4].map((block) => (
-                            <motion.div
-                              key={block}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              whileInView={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: block * 0.1 }}
-                              className="bg-gradient-to-br from-rose-300 to-pink-300 rounded-lg h-16 flex items-center justify-center font-semibold text-white text-sm"
-                            >
-                              Module {block}
-                            </motion.div>
-                          ))}
-                        </div>
-                        <motion.div
-                          animate={{ width: ['0%', '100%'] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="h-1.5 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full"
-                        ></motion.div>
-                      </div>
-                    )}
-
-                    {/* Device Shadow */}
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] h-2 bg-black/10 rounded-full blur-xl"></div>
-                  </div>
-                </motion.div>
-
-                {/* Content - alternates position */}
-                <div className={idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}>
-                  <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-navy">
-                    {service.title}
-                  </h2>
-                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Features List */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                    {service.features.map((feature, featureIdx) => (
-                      <motion.div
-                        key={featureIdx}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: featureIdx * 0.1 }}
-                        viewport={{ once: true }}
-                        className="flex items-start gap-3"
-                      >
-                        <span className="text-blue text-xl mt-1">✓</span>
-                        <span className="text-gray-700">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <Link href="/contact">
-                    <motion.button
-                      className="btn-primary"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Get Started
-                    </motion.button>
-                  </Link>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -386,36 +145,15 @@ export default function Services() {
       </section>
 
       {/* CTA BANNER */}
-      <section className="gradient-bg text-white py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl top-10 -right-48 animate-pulse"></div>
-          <div className="absolute w-96 h-96 bg-white rounded-full blur-3xl bottom-10 -left-48 animate-pulse"></div>
-        </div>
-
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 md:mb-6">
-              Ready to build something great?
-            </h2>
-            <p className="text-lg md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
-              Let's talk about your project and how we can help move your business forward.
-            </p>
-            <Link href="/contact">
-              <motion.button
-                className="bg-white text-navy px-8 py-4 rounded-lg font-bold hover:shadow-2xl transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Get Started
-              </motion.button>
-            </Link>
-          </motion.div>
+      <section className="border-t border-border py-20 md:py-28">
+        <div className="container-custom text-center">
+          <h2 className="font-mono text-2xl md:text-h2 text-text mb-4">Ready to build something great?</h2>
+          <p className="text-text-muted mb-10 max-w-xl mx-auto">
+            Let&rsquo;s talk about your project and how we can help move your business forward.
+          </p>
+          <Link href="/contact" className="btn-primary">
+            Start a project
+          </Link>
         </div>
       </section>
     </div>

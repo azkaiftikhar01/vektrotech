@@ -69,11 +69,11 @@ export default function PremierHealthPage() {
   const techStack = ['Next.js', 'React', 'PostgreSQL', 'Node.js', 'TypeScript', 'Tailwind CSS']
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue/3 to-purple/3">
+    <div className="min-h-screen bg-bg">
       {/* Header */}
-      <section className="bg-gradient-to-br from-red-100 to-pink-100 pt-32 pb-12">
+      <section className="border-b border-border pt-32 pb-12">
         <div className="container-custom">
-          <Link href="/portfolio" className="text-blue font-semibold mb-6 inline-block hover:underline">
+          <Link href="/portfolio" className="text-orange font-mono text-sm mb-6 inline-block hover:underline">
             ← Back to Portfolio
           </Link>
           <motion.div
@@ -81,9 +81,9 @@ export default function PremierHealthPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-red-600 font-semibold text-sm tracking-widest">HEALTHCARE TECHNOLOGY</span>
-            <h1 className="font-serif text-6xl font-bold text-navy mt-4 mb-4">Premier Health</h1>
-            <p className="text-xl text-gray-700 max-w-3xl">
+            <span className="text-orange font-mono text-sm tracking-widest">HEALTHCARE TECHNOLOGY</span>
+            <h1 className="font-mono text-4xl md:text-6xl font-medium text-text mt-4 mb-4">Premier Health</h1>
+            <p className="text-lg text-text-muted max-w-3xl">
               Complete medical practice management platform for internal medicine and pediatrics. Streamline appointments, patient management, billing, and health education in one unified system.
             </p>
           </motion.div>
@@ -93,7 +93,7 @@ export default function PremierHealthPage() {
       {/* Features Grid */}
       <section className="py-20">
         <div className="container-custom">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-12 text-center">Key Features</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-12 text-center">Key Features</h2>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -105,10 +105,10 @@ export default function PremierHealthPage() {
               <motion.div
                 key={feature.title}
                 variants={staggerItem}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-surface border border-border p-8 hover:border-orange transition-colors"
               >
-                <h3 className="font-serif text-xl font-bold text-navy mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="font-mono text-lg font-medium text-text mb-2">{feature.title}</h3>
+                <p className="text-text-muted">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -116,9 +116,9 @@ export default function PremierHealthPage() {
       </section>
 
       {/* Screenshots Showcase */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface">
         <div className="container-custom">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-12 text-center">Platform Overview</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-12 text-center">Platform Overview</h2>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -136,88 +136,88 @@ export default function PremierHealthPage() {
               >
                 {/* Content */}
                 <div className={idx % 2 === 1 ? 'lg:order-2' : ''}>
-                  <span className="text-red-600 font-semibold text-sm">SCREENSHOT {screenshot.id}</span>
-                  <h3 className="font-serif text-3xl font-bold text-navy mt-2 mb-4">{screenshot.title}</h3>
-                  <p className="text-gray-700 text-lg mb-6">{screenshot.description}</p>
+                  <span className="text-orange font-mono text-sm">SCREENSHOT {screenshot.id}</span>
+                  <h3 className="font-mono text-2xl md:text-3xl font-medium text-text mt-2 mb-4">{screenshot.title}</h3>
+                  <p className="text-text-muted text-lg mb-6">{screenshot.description}</p>
                   <div className="space-y-3">
-                    <p className="text-sm font-semibold text-navy">Key Highlights:</p>
+                    <p className="text-sm font-mono text-text">Key Highlights:</p>
                     <ul className="space-y-2">
                       {screenshot.id === 1 && (
                         <>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Professional healthcare branding</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Clear appointment booking CTA</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Contact and hours information</span>
                           </li>
                         </>
                       )}
                       {screenshot.id === 2 && (
                         <>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Form validation and error handling</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>International phone number support</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Reason for visit selection</span>
                           </li>
                         </>
                       )}
                       {screenshot.id === 3 && (
                         <>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Quick action shortcuts</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Sidebar navigation menu</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Welcome message for staff</span>
                           </li>
                         </>
                       )}
                       {screenshot.id === 4 && (
                         <>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Comprehensive appointment data</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Action buttons: Confirm and Delete</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Status tracking system</span>
                           </li>
                         </>
                       )}
                       {screenshot.id === 5 && (
                         <>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Rich text editor for content</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>Draft and publish options</span>
                           </li>
-                          <li className="flex items-start gap-2 text-gray-700">
-                            <span className="text-red-600">✓</span>
+                          <li className="flex items-start gap-2 text-text-muted">
+                            <span className="text-orange">✓</span>
                             <span>SEO-friendly content creation</span>
                           </li>
                         </>
@@ -231,7 +231,7 @@ export default function PremierHealthPage() {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
-                    className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200"
+                    className="relative overflow-hidden bg-surface border border-border"
                   >
                     <Image
                       src={screenshot.image}
@@ -251,7 +251,7 @@ export default function PremierHealthPage() {
       {/* Tech Stack */}
       <section className="py-20">
         <div className="container-custom">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-12 text-center">Technology Stack</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-12 text-center">Technology Stack</h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -262,7 +262,7 @@ export default function PremierHealthPage() {
             {techStack.map((tech) => (
               <div
                 key={tech}
-                className="bg-red-100 text-red-600 px-6 py-3 rounded-full text-lg font-semibold border border-red-300 hover:bg-red-200 transition-colors"
+                className="bg-surface text-text px-6 py-3 text-sm font-mono border border-border hover:border-orange transition-colors"
               >
                 {tech}
               </div>
@@ -274,8 +274,8 @@ export default function PremierHealthPage() {
       {/* CTA */}
       <section className="py-20">
         <div className="container-custom text-center">
-          <h2 className="font-serif text-4xl font-bold text-navy mb-6">Ready to transform your practice?</h2>
-          <p className="text-gray-700 text-lg mb-10 max-w-2xl mx-auto">
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-6">Ready to transform your practice?</h2>
+          <p className="text-text-muted text-lg mb-10 max-w-2xl mx-auto">
             Premier Health is built for modern medical practices. Let's discuss how we can streamline your operations.
           </p>
           <Link href="/contact">

@@ -25,47 +25,41 @@ const relatedPosts = [
 export default function BlogPostLayout({
   title,
   category,
-  categoryColor,
   publishedAt,
   readTime,
   author,
   children,
 }: BlogPostLayoutProps) {
   return (
-    <div className="pt-28 pb-20">
+    <div className="pt-32 pb-20 bg-bg">
       <div className="container-custom max-w-4xl">
         {/* Breadcrumb */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="flex items-center gap-2 text-sm text-navy/50 mb-8"
+          transition={{ duration: 0.3 }}
+          className="flex items-center gap-2 text-sm text-text-dim mb-8 font-mono"
         >
-          <Link href="/" className="hover:text-blue transition-colors">Home</Link>
+          <Link href="/" className="hover:text-orange transition-colors">Home</Link>
           <span>/</span>
-          <Link href="/blog" className="hover:text-blue transition-colors">Blog</Link>
+          <Link href="/blog" className="hover:text-orange transition-colors">Blog</Link>
           <span>/</span>
-          <span className="text-navy/70 truncate max-w-[200px]">{title}</span>
+          <span className="text-text-muted truncate max-w-[200px]">{title}</span>
         </motion.div>
 
         {/* Header */}
         <motion.header
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="mb-10"
         >
-          <span
-            className="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
-            style={{ backgroundColor: `${categoryColor}18`, color: categoryColor }}
-          >
+          <span className="inline-block text-xs font-mono uppercase tracking-widest text-orange border border-border px-3 py-1 mb-4">
             {category}
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-navy leading-tight mb-5">
-            {title}
-          </h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-navy/50">
-            <span>By <strong className="text-navy/70">{author}</strong></span>
+          <h1 className="font-mono text-3xl md:text-5xl text-text leading-tight mb-5">{title}</h1>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-text-dim">
+            <span>By <strong className="text-text-muted">{author}</strong></span>
             <span>·</span>
             <time dateTime={publishedAt}>{publishedAt}</time>
             <span>·</span>
@@ -73,50 +67,40 @@ export default function BlogPostLayout({
           </div>
         </motion.header>
 
-        {/* Divider */}
-        <div className="h-px bg-navy/10 mb-10" />
+        <div className="h-px bg-border mb-10" />
 
         {/* Article Body */}
         <motion.article
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-navy prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-blue prose-a:no-underline hover:prose-a:underline prose-strong:text-navy prose-li:text-gray-600 prose-blockquote:border-l-blue prose-blockquote:text-navy/70"
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="prose prose-invert prose-lg max-w-none prose-headings:font-mono prose-headings:text-text prose-headings:font-medium prose-p:text-text-muted prose-a:text-orange prose-a:no-underline hover:prose-a:underline prose-strong:text-text prose-li:text-text-muted prose-blockquote:border-l-orange prose-blockquote:text-text-muted prose-code:text-orange prose-hr:border-border"
         >
           {children}
         </motion.article>
 
-        {/* Divider */}
-        <div className="h-px bg-navy/10 mt-14 mb-10" />
+        <div className="h-px bg-border mt-14 mb-10" />
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-blue/8 to-purple/8 border border-blue/15 rounded-2xl p-8 md:p-10 text-center"
+          transition={{ duration: 0.4 }}
+          className="border border-border p-8 md:p-10 text-center"
         >
-          <h3 className="font-serif text-2xl md:text-3xl font-bold text-navy mb-3">
-            Ready to put this into practice?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+          <h3 className="font-mono text-xl md:text-2xl text-text mb-3">Ready to put this into practice?</h3>
+          <p className="text-text-muted mb-6 max-w-xl mx-auto">
             Vektro builds the software that moves businesses forward. Let&apos;s talk about your project.
           </p>
-          <Link href="/contact">
-            <motion.button
-              className="bg-navy text-white font-semibold px-8 py-3.5 rounded-full hover:bg-navy/90 transition-colors"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Get a Free Consultation
-            </motion.button>
+          <Link href="/contact" className="btn-primary inline-block">
+            Get a free consultation
           </Link>
         </motion.div>
 
         {/* Related Posts */}
         <div className="mt-14">
-          <h3 className="font-serif text-2xl font-bold text-navy mb-6">More from the Blog</h3>
+          <h3 className="font-mono text-xl text-text mb-6">More from the blog</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {relatedPosts
               .filter((p) => p.title !== title)
@@ -125,10 +109,10 @@ export default function BlogPostLayout({
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group block border border-navy/10 rounded-xl p-5 hover:border-blue/30 hover:shadow-md transition-all duration-200 bg-white/50"
+                  className="group block border border-border p-5 hover:border-orange transition-colors duration-200"
                 >
-                  <span className="text-xs font-semibold text-blue/80 uppercase tracking-wider">{post.category}</span>
-                  <p className="text-navy font-medium mt-1.5 group-hover:text-blue transition-colors leading-snug">
+                  <span className="text-xs font-mono uppercase tracking-wider text-text-dim">{post.category}</span>
+                  <p className="text-text font-mono mt-1.5 group-hover:text-orange transition-colors leading-snug">
                     {post.title}
                   </p>
                 </Link>

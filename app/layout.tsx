@@ -1,24 +1,32 @@
 import type { Metadata } from 'next'
+import { JetBrains_Mono, Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Loader from '@/components/Loader'
 import PageTransition from '@/components/PageTransition'
 import NavigationProgress from '@/components/NavigationProgress'
 import ChatBubble from '@/components/ChatBubble'
+import MotionProvider from '@/components/MotionProvider'
 import './globals.css'
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Vektro - Software Agency | Custom Development & AI Solutions',
   description:
     'Full-service software agency specializing in web design, mobile apps, AI assistants, and QA automation. Build software that moves your business forward.',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.png', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/favicon.png',
-  },
   metadataBase: new URL('https://vektro.tech'),
   alternates: {
     canonical: 'https://vektro.tech',
@@ -46,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${jetbrainsMono.variable} ${inter.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
@@ -57,7 +65,7 @@ export default function RootLayout({
               '@type': 'ProfessionalService',
               name: 'Vektro',
               url: 'https://vektro.tech',
-              logo: 'https://vektro.tech/logo.png',
+              logo: 'https://vektro.tech/logo-mark.png',
               description:
                 'Full-service software agency specializing in web design, mobile apps, AI assistants, and QA automation.',
               email: 'hello@vektro.tech',

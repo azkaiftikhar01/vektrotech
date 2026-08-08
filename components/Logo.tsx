@@ -8,17 +8,15 @@ interface LogoProps {
 }
 
 export default function Logo({ size = 'small', className = '', style }: LogoProps) {
-  const dimensions = size === 'small' ? { width: 120, height: 75 } : { width: 360, height: 225 }
+  const markPx = size === 'small' ? 26 : 40
+  const textClass = size === 'small' ? 'text-lg' : 'text-2xl'
 
   return (
-    <Image
-      src="/logo.png"
-      alt="Vektro - Software Agency"
-      width={dimensions.width}
-      height={dimensions.height}
-      priority
-      className={className}
-      style={style}
-    />
+    <span className={`inline-flex items-center gap-2.5 ${className}`} style={style}>
+      <Image src="/logo-mark.svg" alt="" width={markPx} height={markPx} priority style={{ width: markPx, height: markPx }} />
+      <span className={`font-mono font-medium ${textClass} text-text lowercase leading-none`}>
+        vektro;
+      </span>
+    </span>
   )
 }

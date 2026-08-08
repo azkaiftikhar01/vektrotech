@@ -21,7 +21,7 @@ export default function NavigationProgress() {
           key={pathname}
           className="fixed top-0 left-0 right-0 z-[999] h-[3px] origin-left"
           style={{
-            background: 'linear-gradient(90deg, #0084FF 0%, #6D3ACF 60%, #0084FF 100%)',
+            background: 'linear-gradient(90deg, #f97316 0%, #4ade80 60%, #f97316 100%)',
             backgroundSize: '200% 100%',
           }}
           initial={{ scaleX: 0, opacity: 1 }}

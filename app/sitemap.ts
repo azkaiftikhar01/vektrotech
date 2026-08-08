@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'website-losing-revenue-signs',
   ]
 
+  const portfolioSlugs = ['phool', 'premier-health', 'airova', 'nfsyt']
+
   return [
     {
       url: base,
@@ -32,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    ...portfolioSlugs.map((slug) => ({
+      url: `${base}/portfolio/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     {
       url: `${base}/about`,
       lastModified: now,

@@ -21,14 +21,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-b from-blue/5 to-purple/5 border-t border-blue/10 text-navy py-16">
+    <footer className="bg-surface border-t border-border py-16">
       <div className="container-custom">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* About Column */}
           <div>
             <Logo size="small" />
-            <p className="text-sm text-navy/70 leading-relaxed mt-4">
+            <p className="text-sm text-text-muted leading-relaxed mt-4">
               Vektro is a full-service software agency built for businesses that
               refuse to stay average.
             </p>
@@ -38,7 +38,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Vektro on LinkedIn"
-                className="w-9 h-9 rounded-full bg-navy/8 border border-navy/15 flex items-center justify-center text-navy/60 hover:text-[#0077B5] hover:border-[#0077B5]/40 hover:bg-[#0077B5]/10 transition-all duration-200"
+                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-muted hover:text-[#0077B5] hover:border-[#0077B5]/40 transition-all duration-200"
               >
                 <LinkedInIcon />
               </a>
@@ -47,7 +47,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Vektro on Instagram"
-                className="w-9 h-9 rounded-full bg-navy/8 border border-navy/15 flex items-center justify-center text-navy/60 hover:text-[#E1306C] hover:border-[#E1306C]/40 hover:bg-[#E1306C]/10 transition-all duration-200"
+                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-muted hover:text-[#E1306C] hover:border-[#E1306C]/40 transition-all duration-200"
               >
                 <InstagramIcon />
               </a>
@@ -56,38 +56,26 @@ export default function Footer() {
 
           {/* Services Column */}
           <div>
-            <h4 className="font-serif text-lg mb-4">Services</h4>
+            <h4 className="font-mono text-sm text-text mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link
-                  href="/services#website"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
-                  Website Design
+                <Link href="/services#web-mobile-development" className="text-text-muted hover:text-orange transition-colors">
+                  Web & Mobile
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/services#mobile"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
-                  Mobile Apps
+                <Link href="/services#saas-product-development" className="text-text-muted hover:text-orange transition-colors">
+                  SaaS Products
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/services#ai"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
-                  AI Assistants
+                <Link href="/services#ai-automation" className="text-text-muted hover:text-orange transition-colors">
+                  AI & Automation
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/services#qa"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
-                  QA Automation
+                <Link href="/services#qa-testing" className="text-text-muted hover:text-orange transition-colors">
+                  QA & Testing
                 </Link>
               </li>
             </ul>
@@ -95,37 +83,25 @@ export default function Footer() {
 
           {/* Quick Links Column */}
           <div>
-            <h4 className="font-serif text-lg mb-4">Quick Links</h4>
+            <h4 className="font-mono text-sm text-text mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link
-                  href="/about"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
+                <Link href="/about" className="text-text-muted hover:text-orange transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/portfolio"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
+                <Link href="/portfolio" className="text-text-muted hover:text-orange transition-colors">
                   Our Work
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/blog"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
+                <Link href="/blog" className="text-text-muted hover:text-orange transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
+                <Link href="/contact" className="text-text-muted hover:text-orange transition-colors">
                   Contact
                 </Link>
               </li>
@@ -134,13 +110,10 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div>
-            <h4 className="font-serif text-lg mb-4">Get In Touch</h4>
+            <h4 className="font-mono text-sm text-text mb-4">Get In Touch</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="mailto:hello@vektro.tech"
-                  className="text-navy/70 hover:text-blue transition-all"
-                >
+                <a href="mailto:hello@vektro.tech" className="text-text-muted hover:text-orange transition-colors">
                   hello@vektro.tech
                 </a>
               </li>
@@ -149,18 +122,18 @@ export default function Footer() {
                   href="https://www.linkedin.com/company/vektro-tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-navy/70 hover:text-[#0077B5] transition-all group"
+                  className="flex items-center gap-2 text-text-muted hover:text-[#0077B5] transition-all group"
                 >
-                  <span className="text-navy/40 group-hover:text-[#0077B5] transition-all"><LinkedInIcon /></span>
+                  <span className="text-text-dim group-hover:text-[#0077B5] transition-all"><LinkedInIcon /></span>
                   <span>linkedin.com/company/vektro-tech</span>
                 </a>
                 <a
                   href="https://www.instagram.com/vektro.tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-navy/70 hover:text-[#E1306C] transition-all group"
+                  className="flex items-center gap-2 text-text-muted hover:text-[#E1306C] transition-all group"
                 >
-                  <span className="text-navy/40 group-hover:text-[#E1306C] transition-all"><InstagramIcon /></span>
+                  <span className="text-text-dim group-hover:text-[#E1306C] transition-all"><InstagramIcon /></span>
                   <span>@vektro.tech</span>
                 </a>
               </li>
@@ -169,15 +142,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-navy/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-navy/60">
-            © {currentYear} Vektro. All rights reserved.
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-text-dim font-mono">
+            © {currentYear} vektro. all rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-blue transition-all">
+            <a href="#" className="text-text-dim hover:text-orange transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-400 hover:text-blue transition-all">
+            <a href="#" className="text-text-dim hover:text-orange transition-colors">
               Terms of Service
             </a>
           </div>

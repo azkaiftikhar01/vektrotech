@@ -4,11 +4,12 @@ import nodemailer from 'nodemailer'
 interface ContactFormData {
   name: string
   email: string
-  phone: string
-  service: string
-  budget: string
-  timeline: string
-  description: string
+  phone?: string
+  service?: string
+  budget?: string
+  timeline?: string
+  message?: string
+  description?: string
 }
 
 // Configure your email service
@@ -22,20 +23,25 @@ const transporter = nodemailer.createTransport({
   },
 })
 
+function row(label: string, value?: string) {
+  if (!value) return ''
+  return `<p style="margin: 0 0 10px;"><strong>${label}:</strong> ${value}</p>`
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body: ContactFormData = await request.json()
+    const details = body.description || body.message || ''
 
-    // Validate required fields
-    if (!body.name || !body.email || !body.phone || !body.service || !body.budget || !body.timeline || !body.description) {
+    // Only the essentials are required — this endpoint serves both the simple
+    // contact form (name/email/project type/message) and the richer chat widget.
+    if (!body.name || !body.email || !details) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    // Get environment variables
     const companyEmail = process.env.NEXT_PUBLIC_COMPANY_EMAIL
     const smtpFrom = process.env.SMTP_FROM
 
-    // Validate email configuration
     if (!companyEmail) {
       console.error('Missing NEXT_PUBLIC_COMPANY_EMAIL environment variable')
       return NextResponse.json({ error: 'Email configuration error' }, { status: 500 })
@@ -48,55 +54,50 @@ export async function POST(request: NextRequest) {
 
     // Email to agency
     const agencyEmailHTML = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #1B2A6B;">New Quote Request</h2>
-        <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-          <p><strong>Name:</strong> ${body.name}</p>
-          <p><strong>Email:</strong> ${body.email}</p>
-          <p><strong>Phone:</strong> ${body.phone}</p>
-          <p><strong>Service:</strong> ${body.service}</p>
-          <p><strong>Budget:</strong> ${body.budget}</p>
-          <p><strong>Timeline:</strong> ${body.timeline}</p>
-          <p><strong>Description:</strong></p>
-          <p style="white-space: pre-wrap;">${body.description}</p>
+      <div style="font-family: monospace, monospace; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #f5f5f5; padding: 32px;">
+        <h2 style="color: #f97316; margin-top: 0;">New project inquiry</h2>
+        <div style="background: #131313; border: 1px solid #262626; padding: 20px; margin: 20px 0;">
+          ${row('Name', body.name)}
+          ${row('Email', body.email)}
+          ${row('Phone', body.phone)}
+          ${row('Service', body.service)}
+          ${row('Budget', body.budget)}
+          ${row('Timeline', body.timeline)}
+          <p style="margin: 16px 0 4px;"><strong>Message:</strong></p>
+          <p style="white-space: pre-wrap; color: #8a8a8a;">${details}</p>
         </div>
-        <p style="color: #666; font-size: 12px;">This is an automated message from your website form.</p>
+        <p style="color: #5c5c5c; font-size: 12px;">This is an automated message from the vektro.tech contact form.</p>
       </div>
     `
 
     // Email to client
     const clientEmailHTML = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #1B2A6B;">Thank You for Your Inquiry! 🚀</h2>
+      <div style="font-family: monospace, monospace; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #f5f5f5; padding: 32px;">
+        <h2 style="color: #f97316; margin-top: 0;">Thanks for reaching out</h2>
         <p>Hi ${body.name},</p>
-        <p>We've received your project request and we're excited to help!</p>
-        <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-          <h3 style="color: #0084FF;">Quote Summary</h3>
-          <p><strong>Service:</strong> ${body.service}</p>
-          <p><strong>Budget Range:</strong> ${body.budget}</p>
-          <p><strong>Timeline:</strong> ${body.timeline}</p>
+        <p>We&rsquo;ve received your project request and we&rsquo;re excited to help.</p>
+        <div style="background: #131313; border: 1px solid #262626; padding: 20px; margin: 20px 0;">
+          ${row('Service', body.service)}
+          ${row('Budget', body.budget)}
+          ${row('Timeline', body.timeline)}
         </div>
-        <p>Our team will review your requirements and get back to you with a detailed quote within <strong>24 hours</strong>.</p>
-        <p>In the meantime, if you have any questions, feel free to reach out to us directly.</p>
-        <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;" />
-        <p style="color: #666; font-size: 12px;">
-          <strong>Vektro</strong><br>
-          Software Agency<br>
+        <p>Our team will review your requirements and get back to you within <strong>24 hours</strong>.</p>
+        <hr style="border: none; border-top: 1px solid #262626; margin: 30px 0;" />
+        <p style="color: #5c5c5c; font-size: 12px;">
+          <strong>vektro;</strong><br>
           ${companyEmail}
         </p>
       </div>
     `
 
-    // Send email to agency
     await transporter.sendMail({
       from: smtpFrom,
       to: companyEmail,
-      subject: `New Quote Request from ${body.name}`,
+      subject: `New project inquiry from ${body.name}`,
       html: agencyEmailHTML,
       replyTo: body.email,
     })
 
-    // Send confirmation email to client
     await transporter.sendMail({
       from: smtpFrom,
       to: body.email,
