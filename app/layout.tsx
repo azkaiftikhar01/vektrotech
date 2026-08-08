@@ -131,14 +131,16 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen">
-        <div className="w-full overflow-x-hidden bg-transparent">
-          <NavigationProgress />
-          <Loader />
-          <Navbar />
-          <PageTransition>{children}</PageTransition>
-          <Footer />
-          <ChatBubble />
-        </div>
+        <MotionProvider>
+          <div className="w-full overflow-x-hidden bg-transparent">
+            <NavigationProgress />
+            <Loader />
+            <Navbar />
+            <PageTransition>{children}</PageTransition>
+            <Footer />
+            <ChatBubble />
+          </div>
+        </MotionProvider>
       </body>
     </html>
   )

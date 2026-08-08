@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SelectionFrame from './SelectionFrame'
 import { useReducedMotion } from '@/lib/useReducedMotion'
+import { useIsMobile } from '@/lib/useIsMobile'
 
 function ArrowRight({ className = 'w-4 h-4' }: { className?: string }) {
   return (
@@ -80,12 +81,12 @@ function StackCard({
   project,
   index,
   isLast,
-  reducedMotion,
+  simpleLayout,
 }: {
   project: (typeof projects)[number]
   index: number
   isLast: boolean
-  reducedMotion: boolean
+  simpleLayout: boolean
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: wrapperRef, offset: ['start start', 'end start'] })
@@ -93,7 +94,7 @@ function StackCard({
   const opacity = useTransform(scrollYProgress, [0.65, 1], [1, isLast ? 1 : 0.6])
 
   // Reduced motion: plain stacked blocks, no scroll-pin/scale-linked motion.
-  if (reducedMotion) {
+  if (simpleLayout) {
     return (
       <div className="container-custom py-6">
         <CardBody project={project} />
@@ -117,6 +118,8 @@ function StackCard({
 
 export default function CaseStudiesShowcase() {
   const reducedMotion = useReducedMotion()
+  const isMobile = useIsMobile()
+  const simpleLayout = reducedMotion || isMobile
 
   return (
     <section className="relative">
@@ -131,7 +134,7 @@ export default function CaseStudiesShowcase() {
           project={p}
           index={i}
           isLast={i === projects.length - 1}
-          reducedMotion={reducedMotion}
+          simpleLayout={simpleLayout}
         />
       ))}
 

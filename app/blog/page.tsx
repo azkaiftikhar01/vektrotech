@@ -149,7 +149,7 @@ export default function BlogPage() {
               <p className="text-text-muted text-base md:text-lg leading-relaxed mb-5 max-w-3xl">
                 {featuredPost.excerpt}
               </p>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-text-dim">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
                 <span>{featuredPost.author}</span>
                 <span>·</span>
                 <span>{featuredPost.publishedAt}</span>
@@ -173,7 +173,7 @@ export default function BlogPage() {
                 </span>
                 <h2 className="font-mono text-lg text-text mb-3 leading-snug flex-1">{post.title}</h2>
                 <p className="text-text-muted text-sm leading-relaxed mb-5 line-clamp-3">{post.excerpt}</p>
-                <div className="flex items-center justify-between text-xs text-text-dim mt-auto pt-4 border-t border-border">
+                <div className="flex items-center justify-between text-xs text-text-muted mt-auto pt-4 border-t border-border">
                   <span>{post.publishedAt}</span>
                   <span>{post.readTime} read</span>
                 </div>

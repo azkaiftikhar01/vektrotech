@@ -143,14 +143,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-text-dim font-mono">
+          <p className="text-sm text-text-muted font-mono">
             © {currentYear} vektro. all rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-text-dim hover:text-orange transition-colors">
+            <a href="#" className="text-text-muted hover:text-orange transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-text-dim hover:text-orange transition-colors">
+            <a href="#" className="text-text-muted hover:text-orange transition-colors">
               Terms of Service
             </a>
           </div>

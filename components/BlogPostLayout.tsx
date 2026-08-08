@@ -38,7 +38,7 @@ export default function BlogPostLayout({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="flex items-center gap-2 text-sm text-text-dim mb-8 font-mono"
+          className="flex items-center gap-2 text-sm text-text-muted mb-8 font-mono"
         >
           <Link href="/" className="hover:text-orange transition-colors">Home</Link>
           <span>/</span>
@@ -58,7 +58,7 @@ export default function BlogPostLayout({
             {category}
           </span>
           <h1 className="font-mono text-3xl md:text-5xl text-text leading-tight mb-5">{title}</h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-text-dim">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
             <span>By <strong className="text-text-muted">{author}</strong></span>
             <span>·</span>
             <time dateTime={publishedAt}>{publishedAt}</time>
