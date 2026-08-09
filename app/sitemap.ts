@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'website-losing-revenue-signs',
   ]
 
-  const portfolioSlugs = ['kessoku-ramen', 'premier-health', 'airova', 'nfsyt']
+  const portfolioSlugs = ['kessoku-ramen', 'pulse', 'premier-health', 'airova', 'nfsyt']
 
   return [
     {

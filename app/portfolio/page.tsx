@@ -16,6 +16,14 @@ const projects = [
   },
   {
     id: 2,
+    name: 'Pulse',
+    slug: 'pulse',
+    tagline: 'Deployment Observability Dashboard',
+    achievements: ['Real-time service health', 'Deploy & incident tracking'],
+    image: '/portfolio/pulse/overview.png',
+  },
+  {
+    id: 3,
     name: 'Premier Health',
     slug: 'premier-health',
     tagline: 'Complete Medical Practice Management',
@@ -23,7 +31,7 @@ const projects = [
     image: '/portfolio/premierhealth/Screenshot 2026-05-31 174224.png',
   },
   {
-    id: 3,
+    id: 4,
     name: 'Airova',
     slug: 'airova',
     tagline: 'Personalized AI Assistants for Business',
@@ -31,7 +39,7 @@ const projects = [
     image: '/portfolio/airova/Screenshot 2026-05-31 180126.png',
   },
   {
-    id: 4,
+    id: 5,
     name: 'NFSYT',
     slug: 'nfsyt',
     tagline: 'Mental Wellness & Therapy Support',

@@ -53,6 +53,17 @@ export const kessokuRamenMetadata: Metadata = {
   },
 }
 
+export const pulseMetadata: Metadata = {
+  title: 'Pulse - Deployment Observability Dashboard | Vektro Portfolio',
+  description:
+    'Real-time deployment observability dashboard with live uptime, response time and error tracking, deploy history, and incident management across every monitored service. Built with Next.js and TypeScript.',
+  openGraph: {
+    title: 'Pulse Case Study - Vektro',
+    description: 'Real-time observability dashboard for monitoring deployments, services, and incidents.',
+    url: `${SITE_URL}/portfolio/pulse`,
+  },
+}
+
 export const premierHealthMetadata: Metadata = {
   title: 'Premier Health - Medical Practice Platform | Vektro Portfolio',
   description:
