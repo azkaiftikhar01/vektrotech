@@ -18,12 +18,12 @@ function ArrowRight({ className = 'w-4 h-4' }: { className?: string }) {
 
 const projects = [
   {
-    tag: 'E-COMMERCE',
-    title: 'Phool — checkout rebuild',
-    description: 'Rebuilt the checkout flow for a flower delivery brand end to end, from cart to confirmation.',
-    result: '40% more orders',
-    href: '/portfolio/phool',
-    image: '/portfolio/phool/Screenshot 2026-05-31 174131.png',
+    tag: 'RESTAURANT',
+    title: 'Kessoku Ramen — custom bowl builder',
+    description: 'A late-night ramen counter’s landing site with a step-by-step broth-to-bowl builder and live pricing.',
+    result: 'Real-time order pricing',
+    href: '/portfolio/kessoku-ramen',
+    image: '/portfolio/kessoku-ramen/home.png',
   },
   {
     tag: 'HEALTHCARE',

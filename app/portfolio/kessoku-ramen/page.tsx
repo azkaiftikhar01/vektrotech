@@ -5,56 +5,56 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { staggerContainer, staggerItem } from '@/lib/animations'
 
-export default function PhoolPage() {
+export default function KessokuRamenPage() {
   const screenshots = [
     {
       id: 1,
-      title: 'Product Showcase',
-      description: 'Beautiful product catalog displaying fresh flowers and arrangements',
-      image: '/portfolio/phool/Screenshot 2026-05-31 174131.png',
+      title: 'Landing Page',
+      description: 'Late-night counter branding with hours, seats, and broth count set up front',
+      image: '/portfolio/kessoku-ramen/home.png',
     },
     {
       id: 2,
-      title: 'Bouquet Builder',
-      description: 'Interactive tool for customers to create custom flower arrangements',
-      image: '/portfolio/phool/Screenshot 2026-05-31 174145.png',
+      title: 'House Bowls Menu',
+      description: 'Six house bowls, each orderable as-is or as a starting point for the builder',
+      image: '/portfolio/kessoku-ramen/menu.png',
     },
     {
       id: 3,
-      title: 'Order Management',
-      description: 'Complete order tracking and delivery coordination interface',
-      image: '/portfolio/phool/Screenshot 2026-05-31 174203.png',
+      title: 'Bowl Builder',
+      description: 'Step-by-step broth, noodle, and topping picker with a live running total',
+      image: '/portfolio/kessoku-ramen/order.png',
     },
   ]
 
   const features = [
     {
-      title: 'Product Catalog',
-      description: 'Curated selection of fresh flowers organized by type and occasion',
+      title: 'Custom Bowl Builder',
+      description: 'Step-by-step broth → noodle → topping flow with live price calculation',
     },
     {
-      title: 'Custom Bouquet Builder',
-      description: 'Interactive tool to create personalized flower arrangements',
+      title: 'House Bowl Menu',
+      description: 'Pre-configured bowls that double as starting points in the builder',
     },
     {
-      title: 'Bulk Orders',
-      description: 'Special pricing and management for corporate and event orders',
+      title: 'Cart & Checkout Flow',
+      description: 'Persistent cart with running total across the ordering session',
     },
     {
-      title: 'Event Coordination',
-      description: 'Dedicated team for weddings, events, and special occasions',
+      title: 'Brand-First Design',
+      description: 'Dark, high-contrast layout built around a distinct late-night identity',
     },
     {
-      title: 'Payment Integration',
-      description: 'Secure checkout with multiple payment methods',
+      title: 'Responsive Layout',
+      description: 'Menu grid and builder both adapt cleanly from desktop to mobile',
     },
     {
-      title: 'Delivery Tracking',
-      description: 'Real-time delivery status and customer notifications',
+      title: 'Fast, Static-First Pages',
+      description: 'Prerendered routes for near-instant page loads',
     },
   ]
 
-  const techStack = ['Next.js', 'React', 'MongoDB', 'Stripe', 'Node.js', 'Tailwind CSS']
+  const techStack = ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel']
 
   return (
     <div className="min-h-screen bg-bg">
@@ -69,10 +69,11 @@ export default function PhoolPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-orange font-mono text-sm tracking-widest">E-COMMERCE & RETAIL</span>
-            <h1 className="font-mono text-4xl md:text-6xl font-medium text-text mt-4 mb-4">Phool</h1>
+            <span className="text-orange font-mono text-sm tracking-widest">RESTAURANT & ORDERING</span>
+            <h1 className="font-mono text-4xl md:text-6xl font-medium text-text mt-4 mb-4">Kessoku Ramen</h1>
             <p className="text-lg text-text-muted max-w-3xl">
-              Beautiful flower delivery platform with custom bouquet builder. Phool makes it easy for customers to order fresh flowers for any occasion with professional event coordination support.
+              A late-night ramen counter's landing site and custom bowl builder — pick a house bowl or build one
+              from broth up and watch the price update as you go.
             </p>
           </motion.div>
         </div>
@@ -177,9 +178,9 @@ export default function PhoolPage() {
       {/* CTA */}
       <section className="py-20">
         <div className="container-custom text-center">
-          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-6">Ready to build your flower business?</h2>
+          <h2 className="font-mono text-3xl md:text-4xl font-medium text-text mb-6">Ready to build an ordering experience like this?</h2>
           <p className="text-text-muted text-lg mb-10 max-w-2xl mx-auto">
-            Let's create a beautiful e-commerce platform for your flower delivery service.
+            Let&rsquo;s design a custom ordering flow that fits your brand as tightly as this one fits Kessoku&rsquo;s.
           </p>
           <Link href="/contact">
             <motion.button

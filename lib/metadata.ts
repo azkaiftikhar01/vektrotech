@@ -42,14 +42,14 @@ export const contactMetadata: Metadata = {
   },
 }
 
-export const phoolMetadata: Metadata = {
-  title: 'Phool - Flower Delivery Platform | Vektro Portfolio',
+export const kessokuRamenMetadata: Metadata = {
+  title: 'Kessoku Ramen - Restaurant Ordering Platform | Vektro Portfolio',
   description:
-    'Custom e-commerce platform for Phool with a flower delivery service, bouquet builder, bulk orders, and event coordination. Built with Next.js, React, MongoDB and Stripe.',
+    'Landing site and custom bowl builder for Kessoku Ramen, a late-night ramen counter, with live pricing across broth, noodle, and topping choices. Built with Next.js and TypeScript.',
   openGraph: {
-    title: 'Phool Case Study - Vektro',
-    description: 'E-commerce flower delivery platform with custom bouquet builder and event coordination.',
-    url: `${SITE_URL}/portfolio/phool`,
+    title: 'Kessoku Ramen Case Study - Vektro',
+    description: 'Restaurant landing site with a custom bowl builder and live order pricing.',
+    url: `${SITE_URL}/portfolio/kessoku-ramen`,
   },
 }
 

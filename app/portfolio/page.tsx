@@ -8,11 +8,11 @@ import { revealContainer, revealItem } from '@/lib/animations'
 const projects = [
   {
     id: 1,
-    name: 'Phool',
-    slug: 'phool',
-    tagline: 'Flower Delivery & Custom Arrangements',
-    achievements: ['40% more online orders', '1,000+ monthly users'],
-    image: '/portfolio/phool/Screenshot 2026-05-31 174131.png',
+    name: 'Kessoku Ramen',
+    slug: 'kessoku-ramen',
+    tagline: 'Late-Night Ramen Counter & Bowl Builder',
+    achievements: ['Custom bowl builder', 'Live order pricing'],
+    image: '/portfolio/kessoku-ramen/home.png',
   },
   {
     id: 2,
