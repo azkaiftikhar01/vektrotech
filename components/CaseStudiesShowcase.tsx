@@ -26,6 +26,14 @@ const projects = [
     image: '/portfolio/kessoku-ramen/home.png',
   },
   {
+    tag: 'SAAS PRODUCT',
+    title: 'Pulse — deployment observability',
+    description: 'A real-time dashboard for service health, deploy history, and incidents across an entire stack.',
+    result: 'Real-time service health',
+    href: '/portfolio/pulse',
+    image: '/portfolio/pulse/overview.png',
+  },
+  {
     tag: 'HEALTHCARE',
     title: 'Premier Health — scheduling automation',
     description: 'Automated appointment scheduling for a medical practice, cutting admin work sitewide.',
